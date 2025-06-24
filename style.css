@@ -16,35 +16,9 @@ body {
     background-color: #E1FF8F;
     height: 800px;
     position: relative;
-}
-
-.top__bgi {
-    position: absolute;
-}
-
-.top__bgi_item1 {
-    right: 0px;
-    top: 0px;
-}
-
-.top__bgi_item2 {
-    left: 63px;
-    top: 94px;
-}
-
-.top__bgi_item3 {
-    left: 156px;
-    top: 69px;
-}
-
-.top__bgi_item4 {
-    right: 334px;
-    top: 568px;
-}
-
-.top__bgi_item5 {
-    right: 445px;
-    top: 538px;
+    background-image: url('img/Star1_1.svg'), url('img/Star1_2.svg'), url('img/Star1_3.svg'), url('img/Star1_4.svg'), url('img/Star1_5.svg');
+    background-repeat: no-repeat;
+    background-position: right 0 top 0, left 63px top 94px, left 156px top 69px, right 334px top 568px, right 445px top 538px;
 }
 
 .top__title {
@@ -124,6 +98,9 @@ body {
     background-color: #202027;
     padding-top: 94px;
     padding-bottom: 50px;
+    background-image: url('img/Star2_1.svg'), url('img/Star2_2.svg'), url('img/Star2_3.svg');
+    background-repeat: no-repeat;
+    background-position: right 0px top 77px, left 25px top 770px, left 40px top 822px;
 }
 
 .about__title {
@@ -160,6 +137,11 @@ body {
     gap: 32px;
 }
 
+.about__link {
+    display: block;
+    text-decoration: none;
+}
+
 .about__game {
     display: flex;
     flex-direction: column;
@@ -168,6 +150,11 @@ body {
     border-radius: 30px;
     background: #FFF;
     box-shadow: 0px 12.612px 42.251px -7.567px rgba(0, 0, 0, 0.13);
+    transition: all 0.5s;
+}
+
+.about__game:hover {
+    transform: scale(1.074);
 }
 
 .about__img {
