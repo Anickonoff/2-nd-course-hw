@@ -3,9 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Мини-игры</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <header class="top center">
+        <h1 class="top__title">Добро пожаловать на мой сайт мини-игр</h1>
+        <p class="top__intro">Тебе предстоит пройти несколько увлекательных игр. Если готов, нажимай <span class="top__intro-bold">«Поехали!»</span> и <span class="top__intro-bold">приступай.</span></p>
+        <button class="top__button" onclick="window.location = '#about';">Поехали!</button>
+    </header>
+    <nav class="menu">
+        <a href="#" class="menu__link">Викторина</a>
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 0L22.8616 13.1384L36 18L22.8616 22.8616L18 36L13.1384 22.8616L0 18L13.1384 13.1384L18 0Z" fill="#202027"/>
+        </svg>
+        <a href="#" class="menu__link">Угадай число</a>
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 0L22.8616 13.1384L36 18L22.8616 22.8616L18 36L13.1384 22.8616L0 18L13.1384 13.1384L18 0Z" fill="#202027"/>
+        </svg>
+        <a href="#" class="menu__link">Переверни текст</a>
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 0L22.8616 13.1384L36 18L22.8616 22.8616L18 36L13.1384 22.8616L0 18L13.1384 13.1384L18 0Z" fill="#202027"/>
+        </svg>
+        <a href="#" class="menu__link">Простая арифметика</a>
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 0L22.8616 13.1384L36 18L22.8616 22.8616L18 36L13.1384 22.8616L0 18L13.1384 13.1384L18 0Z" fill="#202027"/>
+        </svg>
+        
+    </nav>
+    <section id="about" class="about center">
+        <h2 class="about__title">Об играх</h2>
+        <p class="about__intro">В моей коллекции представлено 6 игр на разные темы.</p>
+        <p class="about__intro">Игры несложные — в них может поиграть каждый.</p>
+        <p class="about__intro">Все игры доступны для пользования.</p>
+        <div class="about__box">
+            <div class="about__column">
+                <a class="about__link" href="#">
+                    <article class="about__game">
+                        <img src="img/number.jpg" alt="Угадай число" class="about__img">
+                        <div class="about__descr">
+                            <p class="about__number">Игра №1</p>
+                            <h3 class="about__name">Угадай число </h3>
+                        </div>
+                    </article>
+                </a>
+                <a class="about__link" href="#">
+                    <article class="about__game">
+                        <img src="img/stone.jpg" alt="Камень, ножницы, бумага" class="about__img">
+                        <div class="about__descr">
+                            <p class="about__number">Игра №4</p>
+                            <h3 class="about__name">Камень, ножницы, бумага</h3>
+                        </div>
+                    </article>
+                </a>
+            </div>
+            <div class="about__column">
+                <a class="about__link" href="#">
+                    <article class="about__game">
+                        <img src="img/mathematic.jpg" alt="Простая арифметика" class="about__img">
+                        <div class="about__descr">
+                            <p class="about__number">Игра №2</p>
+                            <h3 class="about__name">Простая арифметика</h3>
+                        </div>
+                    </article>
+                </a>
+                <a class="about__link" href="#">
+                    <article class="about__game">
+                        <img src="img/quiz.jpg" alt="Простая викторина" class="about__img">
+                        <div class="about__descr">
+                            <p class="about__number">Игра №5</p>
+                            <h3 class="about__name">Простая викторина</h3>
+                        </div>
+                    </article>
+                </a>
+            </div>
+            <div class="about__column">
+                <a class="about__link" href="#">
+                    <article class="about__game">
+                        <img src="img/text.jpg" alt="Переверни текст" class="about__img">
+                        <div class="about__descr">
+                            <p class="about__number">Игра №3</p>
+                            <h3 class="about__name">Переверни текст</h3>
+                        </div>
+                    </article>
+                </a>
+                <a class="about__link" href="#">
+                    <article class="about__game">
+                        <img src="img/color.jpg" alt="Генератор случайных цветов" class="about__img">
+                        <div class="about__descr">
+                            <p class="about__number">Игра №6</p>
+                            <h3 class="about__name">Генератор случайных цветов</h3>
+                        </div>
+                    </article>
+                </a>
+            </div>
+        </div>
+    </section>
 </body>
 </html>
