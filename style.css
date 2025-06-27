@@ -38,7 +38,8 @@ body {
     font-size: 24px;
     font-style: normal;
     font-weight: 400;
-    line-height: 32px; /* 133.333% */
+    line-height: 32px;
+    /* 133.333% */
 }
 
 .top__intro-bold {
@@ -61,7 +62,8 @@ body {
     font-size: 24px;
     font-style: normal;
     font-weight: 600;
-    line-height: 141.688%; /* 34.005px */
+    line-height: 141.688%;
+    /* 34.005px */
     cursor: pointer;
     margin-bottom: 156px;
 }
@@ -80,6 +82,9 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.20);
     background: #BCEC30;
     backdrop-filter: blur(25px);
+    box-sizing: border-box;
+    width: 100vw;
+    overflow: hidden;
 }
 
 .menu__link {
@@ -87,10 +92,18 @@ body {
     font-size: 30px;
     font-style: normal;
     font-weight: 700;
-    line-height: 110%; /* 33px */
+    line-height: 110%;
+    /* 33px */
     letter-spacing: 1.2px;
     text-transform: uppercase;
     text-decoration: none;
+    flex-shrink: 0;
+}
+
+.menu__img {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
 }
 
 .about {
@@ -178,7 +191,8 @@ body {
     font-size: 16px;
     font-style: normal;
     font-weight: 500;
-    line-height: 110%; /* 17.6px */
+    line-height: 110%;
+    /* 17.6px */
 }
 
 .about__name {
