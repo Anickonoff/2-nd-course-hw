@@ -5,6 +5,7 @@
 
 body {
     font-family: "Montserrat", sans-serif;
+    background-color: #202027;
 }
 
 .center {
@@ -15,7 +16,6 @@ body {
 .top {
     background-color: #E1FF8F;
     height: 800px;
-    position: relative;
     background-image: url('img/Star1_1.svg'), url('img/Star1_2.svg'), url('img/Star1_3.svg'), url('img/Star1_4.svg'), url('img/Star1_5.svg');
     background-repeat: no-repeat;
     background-position: right 0 top 0, left 63px top 94px, left 156px top 69px, right 334px top 568px, right 445px top 538px;
@@ -23,7 +23,7 @@ body {
 
 .top__title {
     padding-top: 196px;
-    max-width: 767px;
+    max-width: 768px;
     color: #202027;
     font-size: 64px;
     font-style: normal;
@@ -39,7 +39,8 @@ body {
     font-size: 24px;
     font-style: normal;
     font-weight: 400;
-    line-height: 32px; /* 133.333% */
+    line-height: 32px;
+    /* 133.333% */
 }
 
 .top__intro-bold {
@@ -62,7 +63,8 @@ body {
     font-size: 24px;
     font-style: normal;
     font-weight: 600;
-    line-height: 141.688%; /* 34.005px */
+    line-height: 141.688%;
+    /* 34.005px */
     cursor: pointer;
     margin-bottom: 156px;
 }
@@ -76,11 +78,14 @@ body {
 .menu {
     display: inline-flex;
     padding: 27px 49px;
-    align-items: flex-start;
+    align-items: center;
     gap: 51px;
     border: 1px solid rgba(255, 255, 255, 0.20);
     background: #BCEC30;
     backdrop-filter: blur(25px);
+    box-sizing: border-box;
+    width: 100vw;
+    overflow: hidden;
 }
 
 .menu__link {
@@ -88,10 +93,18 @@ body {
     font-size: 30px;
     font-style: normal;
     font-weight: 700;
-    line-height: 110%; /* 33px */
+    line-height: 110%;
+    /* 33px */
     letter-spacing: 1.2px;
     text-transform: uppercase;
     text-decoration: none;
+    flex-shrink: 0;
+}
+
+.menu__img {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
 }
 
 .about {
@@ -179,7 +192,8 @@ body {
     font-size: 16px;
     font-style: normal;
     font-weight: 500;
-    line-height: 110%; /* 17.6px */
+    line-height: 110%;
+    /* 17.6px */
 }
 
 .about__name {
@@ -190,4 +204,199 @@ body {
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+}
+
+.games {
+    background-image: url(img/Star3_1.svg), url(img/Star3_2.svg), url(img/Star3_3.svg), url(img/Star3_4.svg);
+    background-position: right 124px top 93px, right 45px top 126px, right 52px bottom 65px, right 150px bottom 45px;
+    background-repeat: no-repeat;
+    padding-top: 46px;
+    padding-bottom: 144px;
+}
+
+.games__title {
+    color: #FFF;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 72px;
+}
+
+.games__box {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.game {
+    border-radius: 30px;
+    background: #FFF;  
+    box-shadow: 0px 20px 67px -12px rgba(0, 0, 0, 0.13);
+    display: flex;
+    align-items: flex-start;
+    align-self: stretch;
+}
+
+.game:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.game__text {
+    display: flex;
+    width: 600px;
+    padding: 48px;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.game__title {
+    color: #202027;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    width: 459px;
+}
+
+.game__descr {
+    width: 489px;
+    color: #202027;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px;
+    margin-top: 24px;
+    margin-bottom: 36px;
+}
+
+.game__button {
+    width: 247px;
+    padding: 16px 28px;
+    border-radius: 60px;
+    background: #202027;
+    color: #FFF;
+    text-align: center;
+    font-family: inherit;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 141.688%;
+}
+
+.game__button:hover {
+    border: 1px solid #000;
+    background-color: #fff;
+    color: #202027;
+}
+
+@media (max-width: 767px) {
+    .about {
+        display: none;
+    }
+
+    .center {
+        padding-left: calc(50% - 172px);
+        padding-right: calc(50% - 172px);
+    }
+
+    .top {
+        height: 650px;
+        background-image: url('img/Star1_1m.svg'), url('img/Star1_2m.svg'), url('img/Star1_3m.svg'), url('img/Star1_4m.svg'), url('img/Star1_5m.svg');
+        background-repeat: no-repeat;
+        background-position: right 0 top 0, left 37px top 97px, left 91px top 64px, right 34px top 580px, right 86px top 557px;
+    }
+
+    .top__title {
+        text-align: center;
+        font-size: 40px;
+        padding-top: 147px;
+    }
+
+    .top__intro {
+        text-align: center;
+        font-size: 16px;
+        line-height: normal;
+        width: auto;
+        min-width: 296px;
+        margin-bottom: 36px;
+    }
+
+    .top__button {
+        width: 285px;
+        font-size: 16px;
+        margin: 0 auto;
+        margin-bottom: 131px;
+    }
+
+    .menu {
+        padding: 16px 24px;
+        backdrop-filter: blur(13.429944038391113px);
+        gap: 27px;
+    }
+
+    .menu__link {
+        font-size: 16px;
+        letter-spacing: 0.64px;
+
+    }
+
+    .menu__img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .games {
+        background-image: none;
+        padding-top: 48px;
+        padding-bottom: 10px;
+    }
+
+    .games__title {
+        font-size: 40px;
+        margin-bottom: 48px;
+    }
+
+    .games__box  {
+        gap: 24px;
+    }
+
+    .game {
+        width: 343px;
+        flex-direction: column;
+        box-shadow: 0px 11.444px 38.339px -6.867px rgba(0, 0, 0, 0.13);
+        flex-direction: column-reverse;
+    }
+
+    .game:nth-child(even) {
+        flex-direction: column-reverse;
+    }
+
+    .game__img {
+        width: 100%;
+    }
+
+    .game__text {
+        padding: 29.037px 29.037px 32.667px 29.037px;
+        width: 285px;
+    }
+
+    .game__title {
+        font-size: 32px;
+        width: auto;
+    }
+
+    .game__descr {
+        width: auto;
+        font-size: 16px;
+        line-height: normal;
+        margin-top: 16px;
+        margin-bottom: 32px;
+    }
+
+    .game__button {
+        width: 285px;
+        font-size: 16px;
+
+    }
 }
