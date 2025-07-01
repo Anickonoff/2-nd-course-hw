@@ -1,56 +1,85 @@
-let a = 10;
-alert(a);
-a = 20;
-alert(a);
-
-let firstIphoneYear = 2007;
-alert(`Первый IPhome вышел в ${firstIphoneYear} году`);
-
-let creatorJavaScript = "Брендан Эйх";
-alert(`Создателем JavaScript является ${creatorJavaScript}`);
-
-a = 10;
-let b = 2;
-alert(a + b);
-alert(a - b);
-alert(a * b);
-alert(a / b);
-
-let result = 2 ** 5;
-alert(`2 в 5 степени равно ${result}`);
-
-a = 9;
-b = 2;
-alert(`остаток от деления ${a} на ${b} равен ${a % b}`);
-
-let num = 1;
-num += 5;
-num -= 3;
-num *= 7;
-num /= 3;
-num++;
-num--;
-alert(num);
-
-let age = prompt('Сколько Вам лет?');
-alert(`Вам ${age} лет`);
-
-let user = { name: "Ilon", age: 53, isAdmin: true};
-console.log(typeof user.name);
-console.log(typeof user.age);
-console.log(typeof user.isAdmin);
+let password = 'gfhjkm';
+let userPassword = prompt('Введите пароль');
+password === userPassword ? alert('Пароль введен верно') : alert('Пароль введен неправильно');
 
 
-let name = prompt('Как Вас зовут?');
-alert(`Привет, ${name}!`);
+let c = 3;
+c > 0 && c < 10 ? console.log('Верно') : console.log('Не верно');
 
-let number = Number(prompt('Введите любое число'));
-let newNumber = number * 2;
-alert(newNumber);
-let newNumber2 = newNumber + 10;
-alert(newNumber2);
-let newNumber3 = newNumber2 / 2;
-alert(newNumber3);
-let newNumber4 = newNumber3 - number;
-alert(newNumber4);
-alert('Ответ всегда равен 5');
+
+let d = 45;
+let e = 33;
+d > 100 || e > 100 ? console.log('Верно') : console.log('Не верно');
+
+
+let a = '2';
+let b = '3';
+alert(Number(a) + Number(b));
+
+
+let monthNumber = 11;
+switch (monthNumber) {
+    case 1:
+    case 2:
+    case 12:
+        console.log('Зима');        
+        break;
+    case 5:
+    case 3:
+    case 4:
+        console.log('Весна');
+        break;
+    case 6:
+    case 7:
+    case 8:
+        console.log('Лето');
+        break;
+    case 9:
+    case 10:
+    case 11:
+        console.log('Осень');
+        break;
+    default:
+        console.log('Нет такого номера месяца');
+        break;
+}
+
+
+let userNubmer = prompt('Пожалуйста, введите любое число');
+if (Number(userNubmer) != userNubmer) {
+    alert('Вы ввели не число');
+} 
+if (userNubmer % 2 == 0) {
+    alert('Число четное');
+} else {
+    alert('Число нечетное');
+}
+
+
+let clientOS = 1;
+if (clientOS == 1) {
+    console.log("Установите версию приложения для Android по ссылке");
+} else if (clientOS == 0) {
+    console.log('Установите версию приложения для iOS по ссылке');
+} else {
+    console.log('Неподдерживаемая платформа, пользуйтесь Web-версией');
+}
+
+
+let clientOS = 2;
+let clientDeviceYear = 2013;
+if (clientOS == 1) {
+    if (clientDeviceYear < 2015) {
+        console.log("Установите облегченную версию приложения для Android по ссылке");
+    } else {
+        console.log("Установите версию приложения для Android по ссылке");
+    }
+} else if (clientOS == 0) {
+    if (clientDeviceYear < 2015) {
+        console.log('Установите облегченную версию приложения для iOS по ссылке');
+    } else {
+        console.log('Установите версию приложения для iOS по ссылке');
+    }
+} else {
+    console.log('Неподдерживаемая платформа, пользуйтесь Web-версией');
+}
