@@ -290,6 +290,22 @@ body {
     color: #202027;
 }
 
+.footer {
+    height: 150px;
+    background: #BDED35;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer__text {
+    color: #000;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
 @media (max-width: 767px) {
     .about {
         display: none;
@@ -398,5 +414,13 @@ body {
         width: 285px;
         font-size: 16px;
 
+    }
+
+    .footer {
+        height: 100px;
+    }
+
+    .footer__text {
+        font-size: 16px;
     }
 }
