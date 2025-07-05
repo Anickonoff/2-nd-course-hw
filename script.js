@@ -1,85 +1,78 @@
-let password = 'gfhjkm';
-let userPassword = prompt('Введите пароль');
-password === userPassword ? alert('Пароль введен верно') : alert('Пароль введен неправильно');
+for (let i = 0; i < 2; i++) {
+    console.log('Привет');
+}
 
-
-let c = 3;
-c > 0 && c < 10 ? console.log('Верно') : console.log('Не верно');
-
-
-let d = 45;
-let e = 33;
-d > 100 || e > 100 ? console.log('Верно') : console.log('Не верно');
-
-
-let a = '2';
-let b = '3';
-alert(Number(a) + Number(b));
-
-
-let monthNumber = 11;
-switch (monthNumber) {
-    case 1:
-    case 2:
-    case 12:
-        console.log('Зима');        
-        break;
-    case 5:
-    case 3:
-    case 4:
-        console.log('Весна');
-        break;
-    case 6:
-    case 7:
-    case 8:
-        console.log('Лето');
-        break;
-    case 9:
-    case 10:
-    case 11:
-        console.log('Осень');
-        break;
-    default:
-        console.log('Нет такого номера месяца');
-        break;
+for (let i = 1; i < 6; i++) {
+    console.log(i);
 }
 
 
-let userNubmer = prompt('Пожалуйста, введите любое число');
-if (Number(userNubmer) != userNubmer) {
-    alert('Вы ввели не число');
-} 
-if (userNubmer % 2 == 0) {
-    alert('Число четное');
-} else {
-    alert('Число нечетное');
+for (let i = 7; i <= 22; i++) {
+    console.log(i);
 }
 
 
-let clientOS = 1;
-if (clientOS == 1) {
-    console.log("Установите версию приложения для Android по ссылке");
-} else if (clientOS == 0) {
-    console.log('Установите версию приложения для iOS по ссылке');
-} else {
-    console.log('Неподдерживаемая платформа, пользуйтесь Web-версией');
+let obj = {
+    "Коля": '200',
+    "Вася": '300',
+    "Петя": '400'
+}
+for (const key in obj) {
+    console.log(`${key} - зарплата ${obj[key]} долларов`);       
 }
 
 
-let clientOS = 2;
-let clientDeviceYear = 2013;
-if (clientOS == 1) {
-    if (clientDeviceYear < 2015) {
-        console.log("Установите облегченную версию приложения для Android по ссылке");
-    } else {
-        console.log("Установите версию приложения для Android по ссылке");
+let n = 1000;
+let count = 0;
+while (n > 50) {
+    n /= 2;
+    count++;
+}
+console.log(`После деления ${count} раз получилось число ${n}`);
+
+
+let firstFriday = 7;
+for (let i = 1; i <= 31; i++){
+    if ((i - firstFriday) % 7 === 0) {
+        console.log(`Сегодня пятница, ${i}-е число. Необходимо подготовить отчет.`);
     }
-} else if (clientOS == 0) {
-    if (clientDeviceYear < 2015) {
-        console.log('Установите облегченную версию приложения для iOS по ссылке');
-    } else {
-        console.log('Установите версию приложения для iOS по ссылке');
-    }
-} else {
-    console.log('Неподдерживаемая платформа, пользуйтесь Web-версией');
 }
+
+
+let k = 100;
+let iteration = 0;
+while (k > 0) {
+    k -= 7;
+    iteration++;
+}
+console.log(`После вычитания ${iteration} раз получилось число ${k}`);
+
+
+let mounth = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"];
+for (let i = 0; i < 12; i++) {
+  console.log(`${mounth[i]} - ${i + 1}-ый месяц в году`);
+}
+
+
+let book = {
+    title: "Возвышение физрука",
+    author: "Мусаниф Сергей",
+    year: 2020,
+    genre: "ЛитРПГ"
+}
+for (const key in book) {
+    console.log(`${key}: ${book[key]}`);                                
+}
+
+
+let numbers = [];
+for (i = 0; i < 10; i++) {
+  numbers[i] = Math.floor(Math.random() * 100);
+}
+let min = numbers[0];
+for (i = 0; i < numbers.length; i++) {
+  if (numbers[i] < min) {
+    min = numbers[i];
+  }
+}
+console.log(`В массиве ${numbers} минимальное число ${min}`);
