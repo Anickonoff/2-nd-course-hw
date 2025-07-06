@@ -51,7 +51,7 @@ const mult = (a, b) => {
 
 //Задание 6
 
-const mult = () => {
+const squareNumber = () => {
   let number = prompt("Введите число")
   if (isNaN(Number(number))) {
     return 'Переданный параметр не является числом';
