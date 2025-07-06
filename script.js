@@ -1,78 +1,61 @@
-for (let i = 0; i < 2; i++) {
-    console.log('Привет');
+//Задание 1
+
+const min = (a, b) => {
+  let minValue = a >= b ? b : a;
+  return minValue;
 }
 
-for (let i = 1; i < 6; i++) {
-    console.log(i);
-}
+//Задание 2
 
-
-for (let i = 7; i <= 22; i++) {
-    console.log(i);
-}
-
-
-let obj = {
-    "Коля": '200',
-    "Вася": '300',
-    "Петя": '400'
-}
-for (const key in obj) {
-    console.log(`${key} - зарплата ${obj[key]} долларов`);       
-}
-
-
-let n = 1000;
-let count = 0;
-while (n > 50) {
-    n /= 2;
-    count++;
-}
-console.log(`После деления ${count} раз получилось число ${n}`);
-
-
-let firstFriday = 7;
-for (let i = 1; i <= 31; i++){
-    if ((i - firstFriday) % 7 === 0) {
-        console.log(`Сегодня пятница, ${i}-е число. Необходимо подготовить отчет.`);
-    }
-}
-
-
-let k = 100;
-let iteration = 0;
-while (k > 0) {
-    k -= 7;
-    iteration++;
-}
-console.log(`После вычитания ${iteration} раз получилось число ${k}`);
-
-
-let mounth = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"];
-for (let i = 0; i < 12; i++) {
-  console.log(`${mounth[i]} - ${i + 1}-ый месяц в году`);
-}
-
-
-let book = {
-    title: "Возвышение физрука",
-    author: "Мусаниф Сергей",
-    year: 2020,
-    genre: "ЛитРПГ"
-}
-for (const key in book) {
-    console.log(`${key}: ${book[key]}`);                                
-}
-
-
-let numbers = [];
-for (i = 0; i < 10; i++) {
-  numbers[i] = Math.floor(Math.random() * 100);
-}
-let min = numbers[0];
-for (i = 0; i < numbers.length; i++) {
-  if (numbers[i] < min) {
-    min = numbers[i];
+function isEven(n) {
+  if (n % 2 == 0) {
+    return 'Число четное'
+  } else {
+    return 'Число нечетное'
   }
 }
-console.log(`В массиве ${numbers} минимальное число ${min}`);
+
+//Задание 3
+
+function sqrInConsole(x) {
+  console.log(x * x);
+}
+
+function sqr(x) {
+  return x * x;
+}
+
+
+//Задание 4
+
+function greetUser() {
+  let userAge = prompt("Сколько Вам лет?");
+  if (userAge < 0) {
+    alert("Вы ввели неправильное значение");
+  } else if (userAge <= 12) {
+    alert("Привет, друг!");
+  } else {
+    alert("Добро пожаловать!");
+  }
+}
+
+//Задание 5
+
+const mult = (a, b) => {
+  if (isNaN(Number(a)) || isNaN(Number(b))) {
+    return 'Одно или оба значения не являются числом';
+  } else {
+  return a * b;
+  }
+}
+
+//Задание 6
+
+const mult = () => {
+  let number = prompt("Введите число")
+  if (isNaN(Number(number))) {
+    return 'Переданный параметр не является числом';
+  } else {
+  return `${number} в кубе равняется ${number ** 2}`;
+  }
+}
