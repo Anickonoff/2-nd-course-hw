@@ -59,3 +59,25 @@ const squareNumber = () => {
   return `${number} в кубе равняется ${number ** 2}`;
   }
 }
+
+//Задание 7 
+
+function getCurcleArea() {
+    return Math.PI * this.radius ** 2;
+}
+
+function getCurclePerimeter() {
+    return 2 * Math.PI * this.radius;
+}
+
+const curcle1 = {
+    radius: 10,
+    getArea: getCurcleArea,
+    getPerimeter: getCurclePerimeter,
+}
+
+const curcle2 = {
+    radius: 1,
+    getArea: getCurcleArea,
+    getPerimeter: getCurclePerimeter,
+}
