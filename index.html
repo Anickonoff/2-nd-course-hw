@@ -116,9 +116,16 @@
                 <div class="game__text">
                     <h3 class="game__title">Угадай число</h3>
                     <p class="game__descr">Попробуй угадать случайное число&nbsp;от&nbsp;1 до 100.</p>
-                    <button class="game__button" onclick="game1()">Играть!</button>
+                    <button class="game__button" onclick="showGameWindow('game__window1')">Играть!</button>
                 </div>
                 <img src="img/number.jpg" alt="Угадай число" class="game__img">
+                <div id="game__window1" class="game__window">
+                    <button id="game__start1" onclick="game1();" class="game__button">Старт</button>
+                    <div id='game__textfield1' class="game__textfield">Угадайте число!</div>
+                    <input id='game__input1' class="game__input"></input>
+                    <button id='game__enter1' class="game__button" onclick="chkNumber();">Ввод</button>
+                    <button id='game__exit1' class="game__button" onclick="hideGameWindow('game__window1')">Выход</button>
+                </div>
             </article>
             <article class="game">
                 <div class="game__text">

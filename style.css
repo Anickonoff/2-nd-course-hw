@@ -236,6 +236,7 @@ body {
     display: flex;
     align-items: flex-start;
     align-self: stretch;
+    position: relative;
 }
 
 .game:nth-child(even) {
@@ -288,6 +289,20 @@ body {
     border: 1px solid #000;
     background-color: #fff;
     color: #202027;
+}
+
+.game__window {
+    display:block;
+    z-index: 10;
+    max-width: 500px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .footer {
