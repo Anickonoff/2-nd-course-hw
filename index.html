@@ -128,7 +128,7 @@
                         <p class="play__instr">Постарайся угадать число за как можно меньшее число попыток.</p>
                         <p class="play__instr">Если надоело играть, нажми кнопку "Выход"</p>
                     </div>
-                    <button id="play__start1" onclick="hideGameWindow('play__start1'); hideGameWindow('play__rules1'); game1();  showGameWindow('play__gamearea1');" class="play__button">Старт</button>
+                    <button id="play__start1" onclick="hideGameWindow('play__start1'); hideGameWindow('play__rules1'); game1();  showGameWindow('play__gamearea1'); document.getElementById('play__input1').focus();" class="play__button">Старт</button>
                     <div id="play__gamearea1" class="play__gamearea">
                         <div id='play__textfield1' class="play__dialog">
                             Введите число!
@@ -136,7 +136,7 @@
                         <input id='play__input1' class="play__input" placeholder="Число"></input>
                         <button id='play__enter1' class="play__button" onclick="chkNumber();">Ввод</button>
                     </div>
-                    <button id='game__exit1' class="play__button" onclick="hideGameWindow('play__window1'); hideGameWindow('play__gamearea1'); showGameWindow('play__rules1'); showGameWindow('play__start1'); clearText(); addText('Введите число!')">Выход</button>
+                    <button id='play__exit1' class="play__button" onclick="hideGameWindow('play__window1'); hideGameWindow('play__gamearea1'); showGameWindow('play__rules1'); showGameWindow('play__start1'); clearText('play__textfield1'); addText('play__textfield1', 'Введите число!')">Выход</button>
                 </div>
             </article>
             <article class="game">

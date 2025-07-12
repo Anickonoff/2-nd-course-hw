@@ -22,21 +22,21 @@ function chkNumber() {
   let userNumber = document.getElementById('play__input1').value;
   document.getElementById('play__input1').value = '';
   let userText = '<p class="play__text">Вы ввели ' + userNumber + "</p>";
-  addText(userText);
+  addText('play__textfield1', userText);
   if (isNaN(Number(userNumber)) || userNumber === "") {
-    addText('<p class="play__text">Переданный параметр не является числом!</p>');
+    addText('play__textfield1', '<p class="play__text">Переданный параметр не является числом!</p>');
   } else if (userNumber < secretNumber) {
     //alert('Загаданное число больше, попробуйте ещё раз.');
-    addText('<p class="play__text">Загаданное число больше, попробуйте ещё раз.</p>');
+    addText('play__textfield1', '<p class="play__text">Загаданное число больше, попробуйте ещё раз.</p>');
     count++;
   } else if (userNumber > secretNumber) {
     //  alert('Загаданное число меньше, попробуйте ещё раз.');
-    addText('<p class="play__text"> Загаданное число меньше, попробуйте ещё раз.</p>');
+    addText('play__textfield1', '<p class="play__text"> Загаданное число меньше, попробуйте ещё раз.</p>');
     count++;
   } else {
     count++;
     userText = '<p class="play__text">Поздравляю, Вы угадали число ' + userNumber + ' за ' + count + ' ' + endingTryWord(count) + "!!!</p>";
-    addText(userText);
+    addText('play__textfield1', userText);
   }
 }
 
@@ -52,14 +52,14 @@ function endingTryWord(a) {
   }
 }
 
-function addText(text) {
-  let div = document.getElementById('play__textfield1');
+function addText(id, text) {
+  let div = document.getElementById(id);
   div.innerHTML += text;
   div.scrollTop = div.scrollHeight;
 }
 
-function clearText() {
-  let div = document.getElementById('play__textfield1');
+function clearText(id) {
+  let div = document.getElementById(id);
   div.innerHTML = '';
 }
 
@@ -68,5 +68,7 @@ document.getElementById("play__input1")
     event.preventDefault();
     if (event.key === 'Enter') {
         document.getElementById("play__enter1").click();
+    } else if (event.key === 'Escape') {
+        document.getElementById('play__exit1').click();
     }
 });
