@@ -121,20 +121,22 @@
                 <img src="img/number.jpg" alt="Угадай число" class="game__img">
                 <div id="play__window1" class="play">
                     <div id="play__rules1" class="play__rules">
-                        <p>Как играть:</p>
-                        <p>Для начала игры нажми на кнопку "Старт"</p>
-                        <p>Вводи в поле число и жми "Ввод"</p>
-                        <p>Тебе ответят, больше загаданное число или меньше.</p>
-                        <p>Постарайся угадать число за как можно меньшее число попыток.</p>
-                        <p>Если надоело играть, нажми кнопку "Выход"</p>
+                        <p class="play__instr">Как играть:</p>
+                        <p class="play__instr">Для начала игры нажми на кнопку "Старт"</p>
+                        <p class="play__instr">Вводи в поле число и жми "Ввод"</p>
+                        <p class="play__instr">Тебе ответят, больше загаданное число или меньше.</p>
+                        <p class="play__instr">Постарайся угадать число за как можно меньшее число попыток.</p>
+                        <p class="play__instr">Если надоело играть, нажми кнопку "Выход"</p>
                     </div>
                     <button id="play__start1" onclick="hideGameWindow('play__start1'); hideGameWindow('play__rules1'); game1();  showGameWindow('play__gamearea1');" class="play__button">Старт</button>
                     <div id="play__gamearea1" class="play__gamearea">
-                        <div id='play__textfield1' class="play__dialog">Угадайте число!</div>
-                        <input id='play__input1' class="play__input"></input>
+                        <div id='play__textfield1' class="play__dialog">
+                            Введите число!
+                        </div>
+                        <input id='play__input1' class="play__input" placeholder="Число"></input>
                         <button id='play__enter1' class="play__button" onclick="chkNumber();">Ввод</button>
                     </div>
-                    <button id='game__exit1' class="play__button" onclick="hideGameWindow('play__window1'); hideGameWindow('play__gamearea1'); showGameWindow('play__rules1'); showGameWindow('play__start1');">Выход</button>
+                    <button id='game__exit1' class="play__button" onclick="hideGameWindow('play__window1'); hideGameWindow('play__gamearea1'); showGameWindow('play__rules1'); showGameWindow('play__start1'); clearText(); addText('Введите число!')">Выход</button>
                 </div>
             </article>
             <article class="game">

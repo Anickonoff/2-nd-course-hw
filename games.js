@@ -10,7 +10,6 @@ function hideGameWindow(id) {
 }
 
 
-
 // Game1
 let secretNumber;
 let count;
@@ -20,24 +19,25 @@ function game1() {
 }
 
 function chkNumber() {
-  let userNumber = document.getElementById('game__input1').value;
-    let userText = '<p class="sug">Вы ввели ' + userNumber + "</p>";
+  let userNumber = document.getElementById('play__input1').value;
+  document.getElementById('play__input1').value = '';
+  let userText = '<p class="play__text">Вы ввели ' + userNumber + "</p>";
+  addText(userText);
+  if (isNaN(Number(userNumber)) || userNumber === "") {
+    addText('<p class="play__text">Переданный параметр не является числом!</p>');
+  } else if (userNumber < secretNumber) {
+    //alert('Загаданное число больше, попробуйте ещё раз.');
+    addText('<p class="play__text">Загаданное число больше, попробуйте ещё раз.</p>');
+    count++;
+  } else if (userNumber > secretNumber) {
+    //  alert('Загаданное число меньше, попробуйте ещё раз.');
+    addText('<p class="play__text"> Загаданное число меньше, попробуйте ещё раз.</p>');
+    count++;
+  } else {
+    count++;
+    userText = '<p class="play__text">Поздравляю, Вы угадали число ' + userNumber + ' за ' + count + ' ' + endingTryWord(count) + "!!!</p>";
     addText(userText);
-    if (isNaN(Number(userNumber)) || userNumber === "") {
-      addText("Переданный параметр не является числом!");
-    } else if (userNumber < secretNumber) {
-      //alert('Загаданное число больше, попробуйте ещё раз.');
-      addText('<p class="ansver">Загаданное число больше, попробуйте ещё раз.</p>');
-      count++;
-    } else if (userNumber > secretNumber) {
-      //  alert('Загаданное число меньше, попробуйте ещё раз.');
-      addText('<p class="ansver"> Загаданное число меньше, попробуйте ещё раз.</p>');
-      count++;
-    } else {
-      count++;
-      userText = '<p class="ansver">Поздравляю, Вы угадали число ' + userNumber + ' за ' + count + ' ' + endingTryWord(count) + "!!!</p>";
-    addText(userText);
-    }
+  }
 }
 
 function endingTryWord(a) {
@@ -53,7 +53,20 @@ function endingTryWord(a) {
 }
 
 function addText(text) {
-  let div = document.getElementById('game__textfield1');
+  let div = document.getElementById('play__textfield1');
   div.innerHTML += text;
+  div.scrollTop = div.scrollHeight;
 }
 
+function clearText() {
+  let div = document.getElementById('play__textfield1');
+  div.innerHTML = '';
+}
+
+document.getElementById("play__input1")
+    .addEventListener("keyup", function(event) {
+    event.preventDefault();
+    if (event.key === 'Enter') {
+        document.getElementById("play__enter1").click();
+    }
+});
