@@ -84,7 +84,7 @@ body {
     background: #BCEC30;
     backdrop-filter: blur(25px);
     box-sizing: border-box;
-    width: 100vw;
+    width: 100%;
     overflow: hidden;
 }
 
@@ -236,6 +236,7 @@ body {
     display: flex;
     align-items: flex-start;
     align-self: stretch;
+    position: relative;
 }
 
 .game:nth-child(even) {
@@ -288,6 +289,94 @@ body {
     border: 1px solid #000;
     background-color: #fff;
     color: #202027;
+}
+
+.play {
+    display:none;
+    z-index: 10;
+    max-width: 700px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 30px;
+    border: 1px solid #000;
+    box-shadow: 0 0px 200px 430px rgba(0, 0, 0, 0.7)
+}
+
+.play__gamearea {
+    display: none;
+}
+
+.play__instr {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px;
+}
+
+.play__button {
+    width: 247px;
+    padding: 16px 28px;
+    border-radius: 60px;
+    background: #202027;
+    color: #FFF;
+    text-align: center;
+    font-family: inherit;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 141.688%;
+}
+
+.play__button:hover {
+    border: 1px solid #000;
+    background-color: #fff;
+    color: #202027;
+}
+
+.play__dialog {
+    max-height: 500px;
+    overflow-y: auto;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.play__text {
+    margin-bottom: 10px;
+    border: 1px solid #BCEC30;
+    border-radius: 20px;
+    background-color: #E1FF8F;
+    padding: 10px 15px;
+    max-width: 70%;
+}
+
+.play__text:nth-child(odd) {
+    text-align: right;
+    align-self: end;
+    border-color: aqua;
+    background-color: aqua;
+}
+
+.play__input {
+    border: 1px solid #000;
+    background-color: #fff;
+    color: #202027;
+    width: 247px;
+    padding: 16px 28px;
+    border-radius: 60px;
+    font-family: inherit;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }
 
 .footer {

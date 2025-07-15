@@ -48,7 +48,7 @@
         <p class="about__intro">Все игры доступны для пользования.</p>
         <div class="about__box">
             <div class="about__column">
-                <a class="about__link" href="#">
+                <a class="about__link" href="#gameNumber">
                     <article class="about__game">
                         <img src="img/number.jpg" alt="Угадай число" class="about__img">
                         <div class="about__descr">
@@ -57,7 +57,7 @@
                         </div>
                     </article>
                 </a>
-                <a class="about__link" href="#">
+                <a class="about__link" href="#gameStone">
                     <article class="about__game">
                         <img src="img/stone.jpg" alt="Камень, ножницы, бумага" class="about__img">
                         <div class="about__descr">
@@ -68,7 +68,7 @@
                 </a>
             </div>
             <div class="about__column">
-                <a class="about__link" href="#">
+                <a class="about__link" href="#gameMathematic">
                     <article class="about__game">
                         <img src="img/mathematic.jpg" alt="Простая арифметика" class="about__img">
                         <div class="about__descr">
@@ -77,7 +77,7 @@
                         </div>
                     </article>
                 </a>
-                <a class="about__link" href="#">
+                <a class="about__link" href="#gameQuiz">
                     <article class="about__game">
                         <img src="img/quiz.jpg" alt="Простая викторина" class="about__img">
                         <div class="about__descr">
@@ -88,7 +88,7 @@
                 </a>
             </div>
             <div class="about__column">
-                <a class="about__link" href="#">
+                <a class="about__link" href="#gameText">
                     <article class="about__game">
                         <img src="img/text.jpg" alt="Переверни текст" class="about__img">
                         <div class="about__descr">
@@ -97,7 +97,7 @@
                         </div>
                     </article>
                 </a>
-                <a class="about__link" href="#">
+                <a class="about__link" href="#gameColor">
                     <article class="about__game">
                         <img src="img/color.jpg" alt="Генератор случайных цветов" class="about__img">
                         <div class="about__descr">
@@ -112,15 +112,34 @@
     <section class="games center">
         <h2 class="games__title">Мини-игры</h2>
         <div class="games__box">
-            <article class="game">
+            <article id="gameNumber" class="game">
                 <div class="game__text">
                     <h3 class="game__title">Угадай число</h3>
                     <p class="game__descr">Попробуй угадать случайное число&nbsp;от&nbsp;1 до 100.</p>
-                    <button class="game__button" onclick="game1()">Играть!</button>
+                    <button class="game__button" onclick="showGameWindow('play__window1')">Играть!</button>
                 </div>
                 <img src="img/number.jpg" alt="Угадай число" class="game__img">
+                <div id="play__window1" class="play">
+                    <div id="play__rules1" class="play__rules">
+                        <p class="play__instr">Как играть:</p>
+                        <p class="play__instr">Для начала игры нажми на кнопку "Старт"</p>
+                        <p class="play__instr">Вводи в поле число и жми "Ввод"</p>
+                        <p class="play__instr">Тебе ответят, больше загаданное число или меньше.</p>
+                        <p class="play__instr">Постарайся угадать число за как можно меньшее число попыток.</p>
+                        <p class="play__instr">Если надоело играть, нажми кнопку "Выход"</p>
+                    </div>
+                    <button id="play__start1" onclick="hideGameWindow('play__start1'); hideGameWindow('play__rules1'); game1();  showGameWindow('play__gamearea1'); document.getElementById('play__input1').focus();" class="play__button">Старт</button>
+                    <div id="play__gamearea1" class="play__gamearea">
+                        <div id='play__textfield1' class="play__dialog">
+                            Введите число!
+                        </div>
+                        <input id='play__input1' class="play__input" placeholder="Число"></input>
+                        <button id='play__enter1' class="play__button" onclick="chkNumber();">Ввод</button>
+                    </div>
+                    <button id='play__exit1' class="play__button" onclick="hideGameWindow('play__window1'); hideGameWindow('play__gamearea1'); showGameWindow('play__rules1'); showGameWindow('play__start1'); clearText('play__textfield1'); addText('play__textfield1', 'Введите число!')">Выход</button>
+                </div>
             </article>
-            <article class="game">
+            <article id="gameMathematic" class="game">
                 <div class="game__text">
                     <h3 class="game__title">Простая арифметика</h3>
                     <p class="game__descr">Попробуй решить простые арифметические задачи.</p>
@@ -128,7 +147,7 @@
                 </div>
                 <img src="img/mathematic.jpg" alt="Простая математика" class="game__img">
             </article>
-            <article class="game">
+            <article id="gameText" class="game">
                 <div class="game__text">
                     <h3 class="game__title">Переверни текст</h3>
                     <p class="game__descr">Попробуй ввести текст, который будет перевернут.</p>
@@ -136,7 +155,7 @@
                 </div>
                 <img src="img/text.jpg" alt="Переверни текст" class="game__img">
             </article>
-            <article class="game">
+            <article id="gameStone" class="game">
                 <div class="game__text">
                     <h3 class="game__title">Камень, ножницы, бумага</h3>
                     <p class="game__descr">Сыграй в популярную игру против&nbsp;компьютера.</p>
@@ -144,7 +163,7 @@
                 </div>
                 <img src="img/stone.jpg" alt="Камень, ножницы, бумага" class="game__img">
             </article>
-            <article class="game">
+            <article id="gameQuiz" class="game">
                 <div class="game__text">
                     <h3 class="game__title">Простая викторина</h3>
                     <p class="game__descr">Отвечай на вопросы викторины с&nbsp;вариантами ответов.</p>
@@ -152,7 +171,7 @@
                 </div>
                 <img src="img/quiz.jpg" alt="Простая викторина" class="game__img">
             </article>
-            <article class="game">
+            <article id="gameColor" class="game">
                 <div class="game__text">
                     <h3 class="game__title">Генератор случайных цветов</h3>
                     <p class="game__descr">Игра, в которой при клике на&nbsp;кнопку фон страницы меняется на случайный.</p>
