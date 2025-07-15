@@ -9,6 +9,17 @@ function hideGameWindow(id) {
     popupOverlay.style.display = "none";
 }
 
+function addText(id, text) {
+  let div = document.getElementById(id);
+  div.innerHTML += text;
+  div.scrollTop = div.scrollHeight;
+}
+
+function clearText(id) {
+  let div = document.getElementById(id);
+  div.innerHTML = '';
+}
+
 
 // Game1
 let secretNumber;
@@ -50,17 +61,6 @@ function endingTryWord(a) {
   } else {
     return "попытку";
   }
-}
-
-function addText(id, text) {
-  let div = document.getElementById(id);
-  div.innerHTML += text;
-  div.scrollTop = div.scrollHeight;
-}
-
-function clearText(id) {
-  let div = document.getElementById(id);
-  div.innerHTML = '';
 }
 
 document.getElementById("play__input1")
