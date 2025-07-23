@@ -29,7 +29,7 @@ function game1() {
   count = 0;
 }
 
-function chkNumber() {
+function chkAnsverGame1() {
   let userNumber = document.getElementById('play__input1').value;
   document.getElementById('play__input1').value = '';
   let userText = '<p class="play__text">Вы ввели ' + userNumber + "</p>";
@@ -70,5 +70,74 @@ document.getElementById("play__input1")
         document.getElementById("play__enter1").click();
     } else if (event.key === 'Escape') {
         document.getElementById('play__exit1').click();
+    }
+});
+
+
+// Game2
+let operationID;
+let a;
+let b;
+let taskText;
+
+let game2 = () => {
+  operationID = Math.floor(Math.random() * 4);
+  switch (operationID) {
+    case 0: //сложение
+      a = Math.floor(Math.random() * 50);
+      b = Math.floor(Math.random() * 50);
+      secretNumber = a + b;
+      taskText = '<p class="play__text">Сколько будет ' + a + ' + ' + b + '?</p>';
+      break;
+    case 1: //вычитание
+      a = Math.floor(Math.random() * 50);
+      b = Math.floor(Math.random() * 50);
+      secretNumber = a - b;
+      taskText = '<p class="play__text">Сколько будет ' + a + ' - ' + b + '?</p>';
+      break;
+    case 2: //умножение
+      a = Math.floor(Math.random() * 10);
+      b = Math.floor(Math.random() * 10);
+      secretNumber = a * b;
+      taskText = '<p class="play__text">Сколько будет ' + a + ' * ' + b + '?</p>';      
+      break;
+    case 3: //деление
+      a = Math.floor(Math.random() * 100);
+      b = Math.floor(Math.random() * 10);
+      secretNumber = (Math.round(a / b * 100) / 100).toFixed(2);
+      taskText = '<p class="play__text">Сколько будет ' + a + ' / ' + b + ' с точностью до двух знаков после запятой?</p>';      
+      break;
+  }
+  addText('play__textfield2', taskText);
+}
+
+function chkAnsverGame2() {
+  let userNumber = document.getElementById('play__input2').value;
+  document.getElementById('play__input2').value = '';
+  let tmpUserNumber = userNumber.split('');
+  if (tmpUserNumber.includes(',')) {
+    tmpUserNumber[tmpUserNumber.indexOf(',')] = '.';
+    userNumber = tmpUserNumber.join('');
+  }
+  if (isNaN(Number(userNumber)) || userNumber === "") {
+    addText('play__textfield2', '<p class="play__text">Вы ввели не число!</p>');
+  } else if (Number(userNumber) == secretNumber) {
+    //alert('Загаданное число больше, попробуйте ещё раз.');
+    let userText = '<p class="play__text">Вы ввели ' + userNumber + ". И это правильный ответ!</p>";
+    addText('play__textfield2', userText);
+    game2();
+  } else {
+    let userText = '<p class="play__text">Вы ввели ' + userNumber + ". И это не правильный ответ.</p>";
+    addText('play__textfield2', userText);game2();
+  }  
+}
+
+document.getElementById("play__input2")
+    .addEventListener("keyup", function(event) {
+    event.preventDefault();
+    if (event.key === 'Enter') {
+        document.getElementById("play__enter2").click();
+    } else if (event.key === 'Escape') {
+        document.getElementById('play__exit2').click();
     }
 });
