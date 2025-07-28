@@ -163,16 +163,34 @@
                         <input id='play__input2' class="play__input" placeholder="Ответ"></input>
                         <button id='play__enter2' class="play__button" onclick="chkAnsverGame2();">Ввод</button>
                     </div>
-                    <button id='play__exit2' class="play__button" onclick="hideGameWindow('play__window2'); hideGameWindow('play__gamearea2'); showGameWindow('play__rules2'); showGameWindow('play__start2'); clearText('play__textfield2')">Выход</button>
+                    <button id='play__exit2' class="play__button" onclick="hideGameWindow('play__window2'); hideGameWindow('play__gamearea2'); showGameWindow('play__rules2'); showGameWindow('play__start2'); clearText('play__textfield2'); ">Выход</button>
                 </div>
             </article>
             <article id="gameText" class="game">
                 <div class="game__text">
                     <h3 class="game__title">Переверни текст</h3>
                     <p class="game__descr">Попробуй ввести текст, который будет перевернут.</p>
-                    <button class="game__button">Играть!</button>
+                    <button class="game__button" onclick="showGameWindow('play__window3')">Играть!</button>
                 </div>
                 <img src="img/text.jpg" alt="Переверни текст" class="game__img">
+                <div id="play__window3" class="play">
+                    <div id="play__rules3" class="play__rules">
+                        <p class="play__instr">Как играть:</p>
+                        <p class="play__instr">Для начала игры нажми на кнопку "Старт"</p>
+                        <p class="play__instr">Вводи в поле текст и нажми "Ввод"</p>
+                        <p class="play__instr">В ответ получишь перевёрнутый текст, который ты набрал.</p>
+                        <p class="play__instr">Если надоело играть, нажми кнопку "Выход"</p>
+                    </div>
+                    <button id="play__start3" onclick="hideGameWindow('play__start3'); hideGameWindow('play__rules3'); showGameWindow('play__gamearea3'); document.getElementById('play__input3').focus();" class="play__button">Старт</button>
+                    <div id="play__gamearea3" class="play__gamearea">
+                        <div id='play__textfield3' class="play__dialog">
+                            Введите текст!
+                        </div>
+                        <input id='play__input3' class="play__input" placeholder="Текст"></input>
+                        <button id='play__enter3' class="play__button" onclick="game3();">Ввод</button>
+                    </div>
+                    <button id='play__exit3' class="play__button" onclick="hideGameWindow('play__window3'); hideGameWindow('play__gamearea3'); showGameWindow('play__rules3'); showGameWindow('play__start3'); clearText('play__textfield3'); addText('play__textfield3', 'Введите текст!')">Выход</button>
+                </div>
             </article>
             <article id="gameStone" class="game">
                 <div class="game__text">

@@ -141,3 +141,24 @@ document.getElementById("play__input2")
         document.getElementById('play__exit2').click();
     }
 });
+
+
+//Game3
+const game3 = () => {
+  let userText = document.getElementById('play__input3').value;
+  document.getElementById('play__input3').value = '';
+  let addedText = '<p class="play__text">Вы ввели ' + userText + "</p>";
+  addText('play__textfield3', addedText);
+  let reversedUserText = '<p class="play__text">' + userText.split('').reverse().join('') + "</p>";
+  addText('play__textfield3', reversedUserText);
+}
+
+document.getElementById("play__input3")
+    .addEventListener("keyup", function(event) {
+    event.preventDefault();
+    if (event.key === 'Enter') {
+        document.getElementById("play__enter3").click();
+    } else if (event.key === 'Escape') {
+        document.getElementById('play__exit3').click();
+    }
+});
