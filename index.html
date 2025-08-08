@@ -204,9 +204,27 @@
                 <div class="game__text">
                     <h3 class="game__title">Простая викторина</h3>
                     <p class="game__descr">Отвечай на вопросы викторины с&nbsp;вариантами ответов.</p>
-                    <button class="game__button">Играть!</button>
+                    <button class="game__button" onclick="showGameWindow('play__window4')">Играть!</button>
                 </div>
                 <img src="img/quiz.jpg" alt="Простая викторина" class="game__img">
+                <div id="play__window4" class="play">
+                    <div id="play__rules4" class="play__rules">
+                        <p class="play__instr">Как играть:</p>
+                        <p class="play__instr">Для начала игры нажми на кнопку "Старт"</p>
+                        <p class="play__instr">Вам будет задан вопрос и предложены варианты ответа</p>
+                        <p class="play__instr">Нажмите на ответ, который считаете верным.</p>
+                        <p class="play__instr">После окончания викторины Вам напишут количество верных ответов</p>
+                        <p class="play__instr">Если надоело играть, нажми кнопку "Выход"</p>
+                    </div>
+                    <button id="play__start4" onclick="hideGameWindow('play__start4'); hideGameWindow('play__rules4'); showGameWindow('play__gamearea4'); game4();" class="play__button">Старт</button>
+                    <div id="play__gamearea4" class="play__gamearea">
+                        <div id='play__textfield4' class="quiz">                           
+                        </div>
+                        <!-- <input id='play__input4' class="play__input" placeholder="Текст"></input> -->
+                        <!-- <button id='play__enter4' class="play__button" onclick="game4();">Ввод</button> -->
+                    </div>
+                    <button id='play__exit4' class="play__button" onclick="hideGameWindow('play__window4'); hideGameWindow('play__gamearea4'); showGameWindow('play__rules4'); showGameWindow('play__start4'); clearText('play__textfield4')">Выход</button>
+                </div>
             </article>
             <article id="gameColor" class="game">
                 <div class="game__text">
