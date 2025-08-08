@@ -349,6 +349,41 @@ body {
     align-items: flex-start;
 }
 
+.quiz {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px;
+}
+
+.quiz__question {
+    text-align: center;
+}
+
+.quiz__ansvers {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.quiz__ansver {
+  min-width: 40%;
+  border: 1px solid green;
+  background-color: #0d0;
+  padding: 5px 10px;
+  text-align: center;
+  border-radius: 20px;
+}
+
+.ansver_selected {
+  background-color: #88ba87;
+}
+
+
 .play__text {
     margin-bottom: 10px;
     border: 1px solid #BCEC30;

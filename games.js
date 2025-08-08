@@ -141,3 +141,99 @@ document.getElementById("play__input2")
         document.getElementById('play__exit2').click();
     }
 });
+
+
+//Game3
+const game3 = () => {
+  let userText = document.getElementById('play__input3').value;
+  document.getElementById('play__input3').value = '';
+  let addedText = '<p class="play__text">Вы ввели ' + userText + "</p>";
+  addText('play__textfield3', addedText);
+  let reversedUserText = '<p class="play__text">' + userText.split('').reverse().join('') + "</p>";
+  addText('play__textfield3', reversedUserText);
+}
+
+document.getElementById("play__input3")
+    .addEventListener("keyup", function(event) {
+    event.preventDefault();
+    if (event.key === 'Enter') {
+        document.getElementById("play__enter3").click();
+    } else if (event.key === 'Escape') {
+        document.getElementById('play__exit3').click();
+    }
+});
+
+
+//Game4
+
+let questionNumber = 0;
+let ansverNumber = 0;
+const quiz = [
+    {
+        question: "Какой цвет небо?",
+        options: ["1. Красный", "2. Синий", "3. Зеленый"],
+        correctAnswer: 2
+    },
+    {
+        question: "Сколько дней в неделе?",
+        options: ["1. Шесть", "2. Семь", "3. Восемь"],
+        correctAnswer: 2
+    },
+    {
+        question: "Сколько у человека пальцев на одной руке?",
+        options: ["1. Четыре", "2. Пять", "3. Шесть"],
+        correctAnswer: 2
+    }
+];
+
+function endingQuestionWord(a) {
+  if (a > 10 && a < 20) {
+    return "вопросов";
+  } else if (a % 10 > 1 && a % 10 < 5) {
+    return "вопроса";
+  } else if ((a % 10 > 4 && a % 10 <= 9) || a % 10 == 0) {
+    return "вопросов";
+  } else {
+    return "вопрос";
+  }
+}
+
+function game4() {
+  questionNumber = 0;
+  ansverNumber = 0;
+  fillQuizField(questionNumber);
+}
+
+function fillQuizField(numberQuestion) {
+  clearText("play__textfield4");
+  let textQuestion = "<p class='quiz__question'>" + quiz[numberQuestion].question + "</p>";
+  addText("play__textfield4", textQuestion);
+  let textAnsver = "<div class='quiz__ansvers'>\n";
+  quiz[numberQuestion].options.forEach((el, index) => {
+    textAnsver +=
+      "<div class='quiz__ansver' onclick='chkAnsver4(this)'>" + el + "</div>\n";
+  });
+  textAnsver += "</div>\n";
+  addText("play__textfield4", textAnsver);
+}
+
+const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+
+async function chkAnsver4(el) {
+  el.style.backgroundColor = "#88ba87";
+  if (quiz[questionNumber].options.indexOf(el.textContent) + 1 === quiz[questionNumber].correctAnswer) {
+    ansverNumber++;
+  }
+  questionNumber++;
+  await sleep(2000);
+  if (questionNumber < quiz.length) {
+    fillQuizField(questionNumber);
+  } else {
+    //результат
+    clearText("play__textfield4");
+    let text = "<p class='quiz__question'>Вопросы закончились. Вы ответили верно на " + ansverNumber + ' ' + endingQuestionWord(ansverNumber) + ' из ' + questionNumber + ".</p>";
+    addText("play__textfield4", text);
+  }
+}
+
+
