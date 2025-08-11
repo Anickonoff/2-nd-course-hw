@@ -320,6 +320,7 @@ body {
 .play__button {
     width: 247px;
     padding: 16px 28px;
+    border: 1px solid #000;
     border-radius: 60px;
     background: #202027;
     color: #FFF;
@@ -329,6 +330,10 @@ body {
     font-style: normal;
     font-weight: 600;
     line-height: 141.688%;
+}
+
+.play__button_game {
+    margin-top: 5px;
 }
 
 .play__button:hover {
@@ -377,6 +382,7 @@ body {
   padding: 5px 10px;
   text-align: center;
   border-radius: 20px;
+  cursor: pointer;
 }
 
 .ansver_selected {
@@ -411,7 +417,8 @@ body {
     font-size: 24px;
     font-style: normal;
     font-weight: 400;
-    line-height: normal;
+    line-height: 141.688%;
+    margin-top: 5px;
 }
 
 .footer {
