@@ -1,133 +1,81 @@
 //Задание 1
 
-const numbers = [1, 5, 4, 10, 0, 3];
-for (let i = 0; i < numbers.length; i++) {
-  console.log(numbers[i]);
-  if (numbers[i] == 10) {
-    break;
-  }
-}
+let str1 = 'js';
+let newStr1 = str1.toUpperCase();
+console.log(newStr1);
 
 //Задание 2
 
-console.log(`Индекс числа 4 в массиве равен ${numbers.indexOf(4)}`);
+function strFilter(strs, str) {
+  const filteredStrs = [];
+  strs.forEach((el) => {
+    if (el.toLowerCase().startsWith(str.toLowerCase())) {
+      filteredStrs.push(el);
+    }
+  });
+  return filteredStrs;
+}
 
 //Задание 3
 
-const numbs = [1, 3, 5, 10, 20];
-console.log(numbs.join(" "));
+let number3 = 32.58884;
+console.log(`Число ${number3} округленное до меньшего целого равно ${Math.floor(number3)}`);
+console.log(`Число ${number3} округленное до большего целого равно ${Math.ceil(number3)}`);
+console.log(`Число ${number3} округленное до ближайшего целого равно ${Math.round(number3)}`);
 
 //Задание 4
 
-const array = [];
-for (let i = 0; i < 3; i++) {
-  array[i] = [];
-  for (let j = 0; j < 3; j++) {
-    array[i][j] = 1;
-  }
-}
-console.log(array);
+const numbers4 = [52, 53, 49, 77, 21, 32];
+console.log(`Минимальное число массива [${numbers4}] равно ${Math.min(...numbers4)}`);
+console.log(`Максимальное число массива [${numbers4}] равно ${Math.max(...numbers4)}`);
 
 //Задание 5
 
-const array5 = [1, 1, 1];
-for (let i = 0; i < 3; i++) {
-  array5.push(2);
-}
-console.log(array5);
+const random10 = () => Math.ceil(Math.random() * 10);
+//Либо с использованием math.floor согласно требованиям:
+const newRandom10 = () => Math.floor(Math.random() * 10) + 1;
 
 //Задание 6
 
-const array6 = [9, 8, 7, 'a', 6, 5];
-array6.sort();
-newarray6 = array6.filter(i => i !='a');
-console.log(newarray6);
-//или просто удалить последний элемент командой
-array6.pop();
-console.log(array6);
-
+function randomArr(length) {
+  let arr = [];
+  //Длина массива равна половине числа с округлением в большую сторону
+  for (let i = 0; i < length / 2; i++) {
+    arr.push(Math.floor(Math.random() * length));
+  }  
+  return arr;
+}
 
 //Задание 7 
 
-const array7 = [9, 8, 7, 6, 5];
-let userNumber = prompt("Угадайте число из массива");
-if (array7.includes(Number(userNumber) )) {
-  alert('Угадал');
-} else {
-  alert('Не угадал');
-}
+const randomMinMax = (min, max) => Math.floor(Math.random() * (max - min) + min);
 
 //Задание 8
 
-let srt8 = 'abcdef';
-let array8 = srt8.split('');
-array8.reverse();
-console.log(array8.join(''));
-//Сокращённый вариант записи без создания новых переменных
-console.log(srt8.split('').reverse().join(''));
+console.log(Date());
 
 //Задание 9
 
-let array9 = [[1, 2, 3],[4, 5, 6]]
-console.log(array9[0].concat(array9[1]));
-//Либо с использованием spread:
-console.log([...array9[0], ...array9[1]]);
+let currentDate = new Date();
+console.log(currentDate);
+//Через изменение UNIX времени
+let days73 = 73 * 24 * 3600 * 1000;
+console.log(new Date(+currentDate + days73));
+//Через суммирование дней, более громозко, но тоже работает
+let futureDate = new Date(currentDate.getFullYear(),currentDate.getMonth(),currentDate.getDate() + 73, currentDate.getHours(), currentDate.getMinutes(),currentDate.getSeconds(),currentDate.getMilliseconds());
+console.log(futureDate);
+//Или проще через setDate (в уроке и конспекте не упоминается)
+let futureDate2 = currentDate;
+futureDate2.setDate(futureDate2.getDate() + 73);
+console.log(futureDate2);
 
 //Задание 10
 
-const array10 = [1, 3, 2, 5, 4];
-
-for (let i = 0; i < array10.length-1; i++) {
-  console.log(array10[i]+array10[i+1]);
+function displayDate(date) {
+  const nameMonth = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"];
+  const nameDay = ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"];
+  let dateText = 'Дата: ' + date.getDate() + ' ' + nameMonth[date.getMonth()] + ' ' + date.getFullYear() + '— это ' + nameDay[date.getDay()];
+  let timeText = 'Время: ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
+  return dateText + '\n' + timeText;
 }
 
-//Задание 11
-
-let sqr = (array) => {
-  return array.map(ar => ar * ar);
-}
-console.log('Массив ' + array10 + ' результат выполнения функции ' + sqr(array10));
-
-//Задание 12
-
-const array12 = [
-  'Я помню чудное мгновенье:',
-  'Передо мной явилась ты,',
-  'Как мимолетное виденье,',
-  'Как гений чистой красоты.'
-];
-let arrStrLength = (arr) => {
-  return arr.map(ar => ar.length);
-}
-console.log(array12);
-console.log(arrStrLength(array12));
-
-//Задание 13
-
-const array13 = [4, -3, 6, -2, -22, 4, 54, -45];
-let arrNegative = (arr) => {
-  return arr.filter(ar => ar < 0);
-}
-console.log(array13);
-console.log(arrNegative(array13));
-
-
-//Задание 14
-
-const array14 = new Array(10);
-for (let i = 0; i < array14.length; i++) {
-  array14[i] = Math.floor(Math.random() * 10);
-}
-const newArray14 = array14.filter(el => el % 2 == 0);
-
-console.log(array14);
-console.log(newArray14);
-
-//Задание 15
-
-const array15 = new Array(6);
-for (let i = 0; i < array15.length; i++) {
-  array15[i] = Math.floor(Math.random() * 10);
-}
-console.log(array15);
-console.log(array15.reduce((result, el) => result + el / array15.length, 0));
