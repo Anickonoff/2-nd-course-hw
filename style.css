@@ -446,7 +446,7 @@ body {
     border: 1px solid #000;
     background-color: #fff;
     position: absolute;
-    top: 50%;
+    top: 70%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 26px;
