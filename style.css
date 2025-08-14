@@ -366,29 +366,91 @@ body {
 }
 
 .quiz__ansvers {
-  display: flex;
-  flex-direction: row;
-  gap: 20px;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  margin-bottom: 20px;
-  margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 .quiz__ansver {
-  min-width: 40%;
-  border: 1px solid green;
-  background-color: #0d0;
-  padding: 5px 10px;
-  text-align: center;
-  border-radius: 20px;
-  cursor: pointer;
+    min-width: 40%;
+    border: 1px solid green;
+    background-color: #0d0;
+    padding: 5px 10px;
+    text-align: center;
+    border-radius: 20px;
+    cursor: pointer;
 }
 
 .ansver_selected {
-  background-color: #88ba87;
+    background-color: #88ba87;
 }
 
+.stone {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.stone__gamearea {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    position: relative;
+    flex-wrap: wrap;
+}
+
+.stone__choose  {
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    overflow: hidden;
+}
+
+.stone__choose_hidden {
+    display: none;
+}
+
+.stone__element:nth-child(3n + 1) {
+    background-image: url(img/paper.svg);
+}
+
+.stone__element:nth-child(3n + 2) {
+    background-image: url(img/granite.svg);
+}
+
+.stone__element:nth-child(3n) {
+    background-image: url(img/scissor.svg);
+}
+
+.stone__element {
+    width: 150px;
+    height: 150px;
+    /* border: 1px solid #000; */
+    flex-shrink: 0;
+    transform: translateY(-150%);
+    background-repeat: no-repeat;
+    background-size: 80%;
+    background-position: center;
+}
+
+.stone__result {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    border: 1px solid #000;
+    background-color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 26px;
+}
 
 .play__text {
     margin-bottom: 10px;
