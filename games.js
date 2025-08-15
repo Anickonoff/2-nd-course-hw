@@ -1,8 +1,8 @@
 //all games
  
-function showGameWindow(id) {
+function showGameWindow(id, style = "block") {
     const popupOverlay = document.getElementById(id);
-    popupOverlay.style.display = "block";
+    popupOverlay.style.display = style;
 }
 function hideGameWindow(id) {
     const popupOverlay = document.getElementById(id);
@@ -237,3 +237,162 @@ async function chkAnsver4(el) {
 }
 
 
+//Game5
+
+
+const carouselPc = document.getElementById('pcchoose');
+const carouselUser = document.getElementById('userchoose');
+const Pc = {};
+const User = {};
+Pc.slides = carouselPc.querySelectorAll('.stone__element');
+User.slides = carouselUser.querySelectorAll('.stone__element');
+
+
+//Функция для перемещения элементов в карусели
+function goToSlide(obj, index) {
+  obj.slides.forEach((slide, i) => {
+    slide.style.transition = 'transform 0.3s ease-in-out';
+    if (Math.ceil(index) == i) {
+      slide.style.transform = `translateY(${100 * (-index)}%)`;
+      slide.style.opacity = 1;
+    } else {
+      slide.style.transform = `translateY(${100 * (-index)}%) scale(0.7)`;
+      slide.style.opacity = 0.5;
+    }
+  });
+}
+
+//Функция для мгновенного сдвига к противоположному краю списка элементов для имитации циклической прокрутки
+function translate(obj, index) {
+    obj.slides.forEach((slide, i) => {
+      slide.style.transition = 'none';
+        if (Math.ceil(index) == i) {
+      slide.style.transform = `translateY(${100 * (-index)}%)`;
+      slide.style.opacity = 1;
+    } else {
+      slide.style.transform = `translateY(${100 * (-index)}%) scale(0.7)`;
+      slide.style.opacity = 0.5;
+    }
+    });
+}
+
+//Функции прокручивания на один элемент вперёд и назад
+function moveFoward (obj) {
+    goToSlide(obj, ++obj.currentIndex);
+    if (obj.currentIndex > 3) {
+        obj.currentIndex -= 3;
+        setTimeout(() => {translate(obj, obj.currentIndex);}, 300);    
+    }
+}
+
+function moveBack (obj) {
+//    console.log(obj.currentIndex);
+    goToSlide(obj, --obj.currentIndex);
+    if (obj.currentIndex < 1) {
+        obj.currentIndex +=3;
+        setTimeout(() => {translate(obj, obj.currentIndex);}, 300);    
+    }
+}
+
+//Определение элемента карусели компьютером путём циклическим вращением в случайном интервале времени
+function runPcchouse () {
+  let chouseTime = Math.floor(Math.random()*1000 + 5000);
+  let timer = setInterval (() => {moveFoward(Pc);}, 335);
+  setTimeout(() => {clearInterval(timer);}, chouseTime);
+}
+
+
+//Прокрутка выбора пользователя
+//const userDiv = document.querySelector('.userchouse');
+function userMove(delta) {
+  if (moveInProgress) return;
+  moveInProgress = true;
+  if (delta > 0) {
+    moveFoward(User);
+  } else {
+    moveBack(User);
+  }
+  setTimeout(function() {
+    moveInProgress = false;
+  }, 310);
+}
+
+//Прокрутка мышью для выбора
+let moveInProgress = false;
+carouselUser.addEventListener('wheel', function(event) {
+  event.preventDefault();
+  userMove(event.deltaY);
+})
+
+//Прокрутка пальцем для выбора
+let touchstartY = 0
+let touchendY = 0
+
+carouselUser.addEventListener('touchstart', e => {
+  touchstartY = e.changedTouches[0].screenY;
+})
+
+carouselUser.addEventListener('touchmove', e => {
+  e.preventDefault();
+})
+
+carouselUser.addEventListener('touchend', e => {
+  touchendY = e.changedTouches[0].screenY;
+  userMove(touchstartY - touchendY);
+})
+
+//Прокрутка стрелками клавиатуры для выбора
+document.addEventListener('keydown', (event) => {
+    if(event.key.includes('Arrow')) {
+      event.preventDefault();
+      const key = event.key;
+      switch (key) {
+        case 'ArrowUp':
+        case 'ArrowLeft':  userMove(-1); break;
+        case 'ArrowDown':
+        case 'ArrowRight': userMove(1); break;
+      }
+    }
+});
+
+
+//Определение победителя по значениям currentIndex 
+function choosingWinner () {
+  clearText('stone__result');
+  let buttonCode = "<button id='stone__moreGame' class='play__button' onclick='hideGameWindow(" + '"pcchoose"' + "); hideGameWindow(" + '"stone__result"' + ");'>Ещё раз!</button>"
+  switch (User.currentIndex - Pc.currentIndex) {
+    case 3:
+    case 0: {
+      addText('stone__result', "Ничья");
+      console.log('Ничья'); break;
+    }
+    case -1:
+    case 2: {
+      addText('stone__result', "Победа!!!");
+      console.log('Победа'); break;
+    }
+    case 1:
+    case -2: {
+      addText('stone__result', "Проиграл...");
+      console.log('Проиграл'); break;
+    }
+    default: console.log(User.currentIndex - Pc.currentIndex); break;
+  }
+  showGameWindow('stone__result', 'flex');
+  addText('stone__result', buttonCode);
+}
+
+function game5() {
+  //Стартовое положение
+  Pc.currentIndex = 1.5;
+  User.currentIndex = 1.5;
+  goToSlide(Pc, Pc.currentIndex);
+  goToSlide(User, User.currentIndex);
+}
+
+async function pcBet () {
+  showGameWindow("pcchoose", 'flex');
+  runPcchouse();
+  await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+  choosingWinner();
+}
