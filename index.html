@@ -13,33 +13,59 @@
     <header class="top center">
         <h1 class="top__title">Добро пожаловать на&nbsp;мой&nbsp;сайт мини-игр</h1>
         <p class="top__intro">Тебе предстоит пройти несколько увлекательных игр. Если готов, нажимай <span class="top__intro-bold">«Поехали!»</span> и <span class="top__intro-bold">приступай.</span></p>
-        <button class="top__button" onclick="window.location = '#about';">Поехали!</button>
+        <button class="top__button" onclick="moveToGame();">Поехали!</button>
     </header>
     <nav class="menu">
-        <a href="#" class="menu__link">Викторина</a>
-        <svg class="menu__img" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M18 0L22.8616 13.1384L36 18L22.8616 22.8616L18 36L13.1384 22.8616L0 18L13.1384 13.1384L18 0Z" fill="#202027"/>
-        </svg>
-        <a href="#" class="menu__link">Угадай&nbsp;число</a>
-        <svg class="menu__img" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M18 0L22.8616 13.1384L36 18L22.8616 22.8616L18 36L13.1384 22.8616L0 18L13.1384 13.1384L18 0Z" fill="#202027"/>
-        </svg>
-        <a href="#" class="menu__link">Переверни&nbsp;текст</a>
-        <svg class="menu__img" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M18 0L22.8616 13.1384L36 18L22.8616 22.8616L18 36L13.1384 22.8616L0 18L13.1384 13.1384L18 0Z" fill="#202027"/>
-        </svg>
-        <a href="#" class="menu__link">Простая&nbsp;арифметика</a>
-        <svg class="menu__img" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M18 0L22.8616 13.1384L36 18L22.8616 22.8616L18 36L13.1384 22.8616L0 18L13.1384 13.1384L18 0Z" fill="#202027"/>
-        </svg>
-        <a href="#" class="menu__link">Камень,&nbsp;ножницы,&nbsp;бумага</a>
-        <svg class="menu__img" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M18 0L22.8616 13.1384L36 18L22.8616 22.8616L18 36L13.1384 22.8616L0 18L13.1384 13.1384L18 0Z" fill="#202027"/>
-        </svg>
-        <a href="#" class="menu__link">Генератор&nbsp;случайных&nbsp;цветов</a>
-        <svg class="menu__img" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M18 0L22.8616 13.1384L36 18L22.8616 22.8616L18 36L13.1384 22.8616L0 18L13.1384 13.1384L18 0Z" fill="#202027"/>
-        </svg>
+        <div class="menu__animate">
+            <a href="#gameQuiz" class="menu__link">Викторина</a>
+            <svg class="menu__img" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 0L22.8616 13.1384L36 18L22.8616 22.8616L18 36L13.1384 22.8616L0 18L13.1384 13.1384L18 0Z" fill="#202027"/>
+            </svg>
+            <a href="#gameNumber" class="menu__link">Угадай&nbsp;число</a>
+            <svg class="menu__img" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 0L22.8616 13.1384L36 18L22.8616 22.8616L18 36L13.1384 22.8616L0 18L13.1384 13.1384L18 0Z" fill="#202027"/>
+            </svg>
+            <a href="#gameText" class="menu__link">Переверни&nbsp;текст</a>
+            <svg class="menu__img" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 0L22.8616 13.1384L36 18L22.8616 22.8616L18 36L13.1384 22.8616L0 18L13.1384 13.1384L18 0Z" fill="#202027"/>
+            </svg>
+            <a href="#gameMathematic" class="menu__link">Простая&nbsp;арифметика</a>
+            <svg class="menu__img" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 0L22.8616 13.1384L36 18L22.8616 22.8616L18 36L13.1384 22.8616L0 18L13.1384 13.1384L18 0Z" fill="#202027"/>
+            </svg>
+            <a href="#gameStone" class="menu__link">Камень,&nbsp;ножницы,&nbsp;бумага</a>
+            <svg class="menu__img" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 0L22.8616 13.1384L36 18L22.8616 22.8616L18 36L13.1384 22.8616L0 18L13.1384 13.1384L18 0Z" fill="#202027"/>
+            </svg>
+            <a href="#gameColor" class="menu__link">Генератор&nbsp;случайных&nbsp;цветов</a>
+            <svg class="menu__img" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 0L22.8616 13.1384L36 18L22.8616 22.8616L18 36L13.1384 22.8616L0 18L13.1384 13.1384L18 0Z" fill="#202027"/>
+            </svg>
+                    <a href="#gameQuiz" class="menu__link">Викторина</a>
+            <svg class="menu__img" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 0L22.8616 13.1384L36 18L22.8616 22.8616L18 36L13.1384 22.8616L0 18L13.1384 13.1384L18 0Z" fill="#202027"/>
+            </svg>
+            <a href="#gameNumber" class="menu__link">Угадай&nbsp;число</a>
+            <svg class="menu__img" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 0L22.8616 13.1384L36 18L22.8616 22.8616L18 36L13.1384 22.8616L0 18L13.1384 13.1384L18 0Z" fill="#202027"/>
+            </svg>
+            <a href="#gameText" class="menu__link">Переверни&nbsp;текст</a>
+            <svg class="menu__img" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 0L22.8616 13.1384L36 18L22.8616 22.8616L18 36L13.1384 22.8616L0 18L13.1384 13.1384L18 0Z" fill="#202027"/>
+            </svg>
+            <a href="#gameMathematic" class="menu__link">Простая&nbsp;арифметика</a>
+            <svg class="menu__img" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 0L22.8616 13.1384L36 18L22.8616 22.8616L18 36L13.1384 22.8616L0 18L13.1384 13.1384L18 0Z" fill="#202027"/>
+            </svg>
+            <a href="#gameStone" class="menu__link">Камень,&nbsp;ножницы,&nbsp;бумага</a>
+            <svg class="menu__img" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 0L22.8616 13.1384L36 18L22.8616 22.8616L18 36L13.1384 22.8616L0 18L13.1384 13.1384L18 0Z" fill="#202027"/>
+            </svg>
+            <a href="#gameColor" class="menu__link">Генератор&nbsp;случайных&nbsp;цветов</a>
+            <svg class="menu__img" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 0L22.8616 13.1384L36 18L22.8616 22.8616L18 36L13.1384 22.8616L0 18L13.1384 13.1384L18 0Z" fill="#202027"/>
+            </svg>
+        </div>
     </nav>
     <section id="about" class="about center">
         <h2 class="about__title">Об играх</h2>
@@ -109,7 +135,7 @@
             </div>
         </div>
     </section>
-    <section class="games center">
+    <section id="games" class="games center">
         <h2 class="games__title">Мини-игры</h2>
         <div class="games__box">
             <article id="gameNumber" class="game">
@@ -275,7 +301,6 @@
     <footer class="footer">
         <p class="footer__text">Все права защищены.</p>
     </footer>
-    <script src="script.js"></script>
     <script src="games.js"></script>
 </body>
 </html>

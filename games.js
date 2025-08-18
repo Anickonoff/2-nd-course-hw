@@ -1,4 +1,22 @@
 //all games
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+ 
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
+function moveToGame(params) {
+  if (window.innerWidth <= 767) {
+    document.getElementById('games').scrollIntoView({behavior:'smooth'});  
+  } else {
+    document.getElementById('about').scrollIntoView({behavior:'smooth'});  
+  }
+}
  
 function showGameWindow(id, style = "block") {
     const popupOverlay = document.getElementById(id);
