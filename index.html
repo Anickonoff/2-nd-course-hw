@@ -154,7 +154,6 @@
                         <p class="play__instr">Постарайся угадать число за как можно меньшее число попыток.</p>
                         <p class="play__instr">Если надоело играть, нажми кнопку "Выход"</p>
                     </div>
-                    <button id="play__start1" onclick="hideGameWindow('play__start1'); hideGameWindow('play__rules1'); game1();  showGameWindow('play__gamearea1'); document.getElementById('play__input1').focus();" class="play__button">Старт</button>
                     <div id="play__gamearea1" class="play__gamearea">
                         <div id='play__textfield1' class="play__dialog">
                             Введите число!
@@ -162,7 +161,8 @@
                         <input id='play__input1' class="play__input" placeholder="Число"></input>
                         <button id='play__enter1' class="play__button play__button_game" onclick="chkAnsverGame1();">Ввод</button>
                     </div>
-                    <button id='play__exit1' class="play__button play__button_game" onclick="hideGameWindow('play__window1'); hideGameWindow('play__gamearea1'); showGameWindow('play__rules1'); showGameWindow('play__start1'); clearText('play__textfield1'); addText('play__textfield1', 'Введите число!')">Выход</button>
+                    <button id="play__start1" onclick="game1Start();" class="play__button">Старт</button>
+                    <button id='play__exit1' class="play__button play__button_game" onclick="game1Stop();">Выход</button>
                 </div>
             </article>
             <article id="gameMathematic" class="game">
@@ -181,7 +181,6 @@
                         <p class="play__instr">У тебя будет одна попытка ответить на каждый пример.</p>
                         <p class="play__instr">Если надоело играть, нажми кнопку "Выход"</p>
                     </div>
-                    <button id="play__start2" onclick="hideGameWindow('play__start2'); hideGameWindow('play__rules2'); game2();  showGameWindow('play__gamearea2'); document.getElementById('play__input2').focus();" class="play__button">Старт</button>
                     <div id="play__gamearea2" class="play__gamearea">
                         <div id='play__textfield2' class="play__dialog">
                             
@@ -189,7 +188,8 @@
                         <input id='play__input2' class="play__input" placeholder="Ответ"></input>
                         <button id='play__enter2' class="play__button play__button_game" onclick="chkAnsverGame2();">Ввод</button>
                     </div>
-                    <button id='play__exit2' class="play__button play__button_game" onclick="hideGameWindow('play__window2'); hideGameWindow('play__gamearea2'); showGameWindow('play__rules2'); showGameWindow('play__start2'); clearText('play__textfield2'); ">Выход</button>
+                    <button id="play__start2" onclick="game2Start()" class="play__button">Старт</button>
+                    <button id='play__exit2' class="play__button play__button_game" onclick="game2Stop();">Выход</button>
                 </div>
             </article>
             <article id="gameText" class="game">
@@ -207,7 +207,6 @@
                         <p class="play__instr">В ответ получишь перевёрнутый текст, который ты набрал.</p>
                         <p class="play__instr">Если надоело играть, нажми кнопку "Выход"</p>
                     </div>
-                    <button id="play__start3" onclick="hideGameWindow('play__start3'); hideGameWindow('play__rules3'); showGameWindow('play__gamearea3'); document.getElementById('play__input3').focus();" class="play__button">Старт</button>
                     <div id="play__gamearea3" class="play__gamearea">
                         <div id='play__textfield3' class="play__dialog">
                             Введите текст!
@@ -215,7 +214,8 @@
                         <input id='play__input3' class="play__input" placeholder="Текст"></input>
                         <button id='play__enter3' class="play__button play__button_game" onclick="game3();">Ввод</button>
                     </div>
-                    <button id='play__exit3' class="play__button play__button_game" onclick="hideGameWindow('play__window3'); hideGameWindow('play__gamearea3'); showGameWindow('play__rules3'); showGameWindow('play__start3'); clearText('play__textfield3'); addText('play__textfield3', 'Введите текст!')">Выход</button>
+                    <button id="play__start3" onclick="game3Start();" class="play__button">Старт</button>
+                    <button id='play__exit3' class="play__button play__button_game" onclick="game3Stop();">Выход</button>
                 </div>
             </article>
             <article id="gameStone" class="game">
@@ -234,7 +234,6 @@
                         <p class="play__instr">Компьютер выберет свой ставку и скажет, победили Вы или проиграли.</p>
                         <p class="play__instr">Если надоело играть, нажми кнопку "Выход"</p>
                     </div>
-                    <button id="play__start5" onclick="hideGameWindow('play__start5'); hideGameWindow('play__rules5'); showGameWindow('play__gamearea5'); game5();" class="play__button">Старт</button>
                     <div id="play__gamearea5" class="play__gamearea">
                         <div id='play__textfield5' class="stone">
                             <div class="stone__gamearea">
@@ -261,7 +260,8 @@
                         </div>
                         <button id='play__enter5' class="play__button" onclick="pcBet();">Я выбрал!</button>
                     </div>
-                    <button id='play__exit5' class="play__button play__button_game" onclick="hideGameWindow('play__window5'); hideGameWindow('play__gamearea5'); hideGameWindow('pcchoose'); showGameWindow('play__rules5'); showGameWindow('play__start5')">Выход</button>
+                    <button id="play__start5" onclick="game5Start();" class="play__button">Старт</button>
+                    <button id='play__exit5' class="play__button play__button_game" onclick="game5Stop();">Выход</button>
                 </div>
             </article>
             <article id="gameQuiz" class="game">
@@ -280,12 +280,12 @@
                         <p class="play__instr">После окончания викторины Вам напишут количество верных ответов</p>
                         <p class="play__instr">Если надоело играть, нажми кнопку "Выход"</p>
                     </div>
-                    <button id="play__start4" onclick="hideGameWindow('play__start4'); hideGameWindow('play__rules4'); showGameWindow('play__gamearea4'); game4();" class="play__button">Старт</button>
                     <div id="play__gamearea4" class="play__gamearea">
                         <div id='play__textfield4' class="quiz">                           
                         </div>
                     </div>
-                    <button id='play__exit4' class="play__button play__button_game" onclick="hideGameWindow('play__window4'); hideGameWindow('play__gamearea4'); showGameWindow('play__rules4'); showGameWindow('play__start4'); clearText('play__textfield4')">Выход</button>
+                    <button id="play__start4" onclick="game4Start();" class="play__button">Старт</button>
+                    <button id='play__exit4' class="play__button play__button_game" onclick="game4Stop();">Выход</button>
                 </div>
             </article>
             <article id="gameColor" class="game">

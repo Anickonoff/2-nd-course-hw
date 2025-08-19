@@ -55,17 +55,17 @@ function chkAnsverGame1() {
   if (isNaN(Number(userNumber)) || userNumber === "") {
     addText('play__textfield1', '<p class="play__text">Переданный параметр не является числом!</p>');
   } else if (userNumber < secretNumber) {
-    //alert('Загаданное число больше, попробуйте ещё раз.');
     addText('play__textfield1', '<p class="play__text">Загаданное число больше, попробуйте ещё раз.</p>');
     count++;
   } else if (userNumber > secretNumber) {
-    //  alert('Загаданное число меньше, попробуйте ещё раз.');
     addText('play__textfield1', '<p class="play__text"> Загаданное число меньше, попробуйте ещё раз.</p>');
     count++;
   } else {
     count++;
     userText = '<p class="play__text">Поздравляю, Вы угадали число ' + userNumber + ' за ' + count + ' ' + endingTryWord(count) + "!!!</p>";
     addText('play__textfield1', userText);
+    hideGameWindow('play__input1');
+    hideGameWindow('play__enter1');
   }
 }
 
@@ -90,6 +90,25 @@ document.getElementById("play__input1")
         document.getElementById('play__exit1').click();
     }
 });
+
+function game1Start() {
+  hideGameWindow('play__start1'); 
+  hideGameWindow('play__rules1'); 
+  game1();  
+  showGameWindow('play__gamearea1'); 
+  showGameWindow('play__input1','inline'); 
+  showGameWindow('play__enter1','inline'); 
+  document.getElementById('play__input1').focus();
+}
+
+function game1Stop() {
+  hideGameWindow('play__window1'); 
+  hideGameWindow('play__gamearea1'); 
+  showGameWindow('play__rules1'); 
+  showGameWindow('play__start1','inline'); 
+  clearText('play__textfield1'); 
+  addText('play__textfield1', 'Введите число!');
+}
 
 
 // Game2
@@ -140,7 +159,6 @@ function chkAnsverGame2() {
   if (isNaN(Number(userNumber)) || userNumber === "") {
     addText('play__textfield2', '<p class="play__text">Вы ввели не число!</p>');
   } else if (Number(userNumber) == secretNumber) {
-    //alert('Загаданное число больше, попробуйте ещё раз.');
     let userText = '<p class="play__text">Вы ввели ' + userNumber + ". И это правильный ответ!</p>";
     addText('play__textfield2', userText);
     game2();
@@ -160,6 +178,21 @@ document.getElementById("play__input2")
     }
 });
 
+function game2Start() {
+  hideGameWindow('play__start2'); 
+  hideGameWindow('play__rules2'); 
+  game2();  
+  showGameWindow('play__gamearea2'); 
+  document.getElementById('play__input2').focus();
+}
+
+function game2Stop() {
+  hideGameWindow('play__window2'); 
+  hideGameWindow('play__gamearea2'); 
+  showGameWindow('play__rules2'); 
+  showGameWindow('play__start2','inline'); 
+  clearText('play__textfield2');
+}
 
 //Game3
 const game3 = () => {
@@ -181,6 +214,21 @@ document.getElementById("play__input3")
     }
 });
 
+function game3Start() {
+  hideGameWindow('play__start3'); 
+  hideGameWindow('play__rules3'); 
+  showGameWindow('play__gamearea3'); 
+  document.getElementById('play__input3').focus();
+}
+
+function game3Stop() {
+  hideGameWindow('play__window3'); 
+  hideGameWindow('play__gamearea3'); 
+  showGameWindow('play__rules3'); 
+  showGameWindow('play__start3','inline'); 
+  clearText('play__textfield3'); 
+  addText('play__textfield3', 'Введите текст!')
+}
 
 //Game4
 
@@ -254,9 +302,22 @@ async function chkAnsver4(el) {
   }
 }
 
+function game4Start() {
+  hideGameWindow('play__start4'); 
+  hideGameWindow('play__rules4'); 
+  showGameWindow('play__gamearea4'); 
+  game4();
+}
+
+function game4Stop() {
+  hideGameWindow('play__window4'); 
+  hideGameWindow('play__gamearea4'); 
+  showGameWindow('play__rules4'); 
+  showGameWindow('play__start4','inline'); 
+  clearText('play__textfield4')
+}
 
 //Game5
-
 
 const carouselPc = document.getElementById('pcchoose');
 const carouselUser = document.getElementById('userchoose');
@@ -265,12 +326,11 @@ const User = {};
 Pc.slides = carouselPc.querySelectorAll('.stone__element');
 User.slides = carouselUser.querySelectorAll('.stone__element');
 
-
 //Функция для перемещения элементов в карусели
 function goToSlide(obj, index) {
   obj.slides.forEach((slide, i) => {
     slide.style.transition = 'transform 0.3s ease-in-out';
-    if (Math.ceil(index) == i) {
+    if (Math.ceil(index) === i) {
       slide.style.transform = `translateY(${100 * (-index)}%)`;
       slide.style.opacity = 1;
     } else {
@@ -282,16 +342,16 @@ function goToSlide(obj, index) {
 
 //Функция для мгновенного сдвига к противоположному краю списка элементов для имитации циклической прокрутки
 function translate(obj, index) {
-    obj.slides.forEach((slide, i) => {
-      slide.style.transition = 'none';
-        if (Math.ceil(index) == i) {
+  obj.slides.forEach((slide, i) => {
+    slide.style.transition = 'none';
+    if (Math.ceil(index) === i) {
       slide.style.transform = `translateY(${100 * (-index)}%)`;
       slide.style.opacity = 1;
     } else {
       slide.style.transform = `translateY(${100 * (-index)}%) scale(0.7)`;
       slide.style.opacity = 0.5;
     }
-    });
+  });
 }
 
 //Функции прокручивания на один элемент вперёд и назад
@@ -304,7 +364,6 @@ function moveFoward (obj) {
 }
 
 function moveBack (obj) {
-//    console.log(obj.currentIndex);
     goToSlide(obj, --obj.currentIndex);
     if (obj.currentIndex < 1) {
         obj.currentIndex +=3;
@@ -321,7 +380,6 @@ function runPcchouse () {
 
 
 //Прокрутка выбора пользователя
-//const userDiv = document.querySelector('.userchouse');
 function userMove(delta) {
   if (moveInProgress) return;
   moveInProgress = true;
@@ -408,9 +466,25 @@ function game5() {
   goToSlide(User, User.currentIndex);
 }
 
+//Выбор компьютера и определение победителя
 async function pcBet () {
   showGameWindow("pcchoose", 'flex');
   runPcchouse();
   await new Promise((resolve, reject) => setTimeout(resolve, 6000));
   choosingWinner();
+}
+
+function game5Start() {
+  hideGameWindow('play__start5'); 
+  hideGameWindow('play__rules5'); 
+  showGameWindow('play__gamearea5'); 
+  game5();
+}
+
+function game5Stop() {
+  hideGameWindow('play__window5'); 
+  hideGameWindow('play__gamearea5'); 
+  hideGameWindow('pcchoose'); 
+  showGameWindow('play__rules5'); 
+  showGameWindow('play__start5','inline')
 }
