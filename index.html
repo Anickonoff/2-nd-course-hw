@@ -292,9 +292,28 @@
                 <div class="game__text">
                     <h3 class="game__title">Генератор случайных цветов</h3>
                     <p class="game__descr">Игра, в которой при клике на&nbsp;кнопку фон страницы меняется на случайный.</p>
-                    <button class="game__button">Играть!</button>
+                    <button class="game__button" onclick="showGameWindow('play__window6')">Играть!</button>
                 </div>
                 <img src="img/color.jpg" alt="Генератор случайных цветов" class="game__img">
+                <div id="play__window6" class="play">
+                    <div id="play__rules6" class="play__rules">
+                        <p class="play__instr">Как играть:</p>
+                        <p class="play__instr">Для начала игры нажми на кнопку "Старт"</p>
+                        <p class="play__instr">Появится окно с кнопками "Перекрасить" и "Вернуть"</p>
+                        <p class="play__instr">При каждом нажатии на первую кнопку меняется цвет фона сайта.</p>
+                        <p class="play__instr">При нажатии на вторую - вернётся изначальный цвет.</p>
+                        <p class="play__instr">Если надоело играть, нажми кнопку "Выход"</p>
+                    </div>
+                    <div id="play__gamearea6" class="play__gamearea">
+                        <div id='play__textfield6' class="play__dialog">                          
+                        </div>
+                        <button id="play__change6" onclick="game6();" class="play__button">Перекрасить</button>
+                        <button id="play__return6" onclick="changeBgColor();" class="play__button">Вернуть</button>
+                    </div>
+                    <button id="play__start6" onclick="game6Start();" class="play__button">Старт</button>
+                    <button id='play__exit6' class="play__button play__button_game" onclick="game6Stop();">Выход</button>
+                </div>
+
             </article>
         </div>
     </section>

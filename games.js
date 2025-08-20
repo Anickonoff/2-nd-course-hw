@@ -326,24 +326,14 @@ const User = {};
 Pc.slides = carouselPc.querySelectorAll('.stone__element');
 User.slides = carouselUser.querySelectorAll('.stone__element');
 
-//Функция для перемещения элементов в карусели
-function goToSlide(obj, index) {
+//Функция для плавного перемещения элементов в карусели или мгновенного сдвига к противоположному краю списка элементов для имитации циклической прокрутки
+function goToSlide(obj, index, instant = false) {
   obj.slides.forEach((slide, i) => {
-    slide.style.transition = 'transform 0.3s ease-in-out';
-    if (Math.ceil(index) === i) {
-      slide.style.transform = `translateY(${100 * (-index)}%)`;
-      slide.style.opacity = 1;
+    if (instant) {
+      slide.style.transition = 'none';
     } else {
-      slide.style.transform = `translateY(${100 * (-index)}%) scale(0.7)`;
-      slide.style.opacity = 0.5;
+      slide.style.transition = 'transform 0.3s ease-in-out';
     }
-  });
-}
-
-//Функция для мгновенного сдвига к противоположному краю списка элементов для имитации циклической прокрутки
-function translate(obj, index) {
-  obj.slides.forEach((slide, i) => {
-    slide.style.transition = 'none';
     if (Math.ceil(index) === i) {
       slide.style.transform = `translateY(${100 * (-index)}%)`;
       slide.style.opacity = 1;
@@ -355,26 +345,22 @@ function translate(obj, index) {
 }
 
 //Функции прокручивания на один элемент вперёд и назад
-function moveFoward (obj) {
-    goToSlide(obj, ++obj.currentIndex);
-    if (obj.currentIndex > 3) {
-        obj.currentIndex -= 3;
-        setTimeout(() => {translate(obj, obj.currentIndex);}, 300);    
-    }
-}
-
-function moveBack (obj) {
-    goToSlide(obj, --obj.currentIndex);
-    if (obj.currentIndex < 1) {
-        obj.currentIndex +=3;
-        setTimeout(() => {translate(obj, obj.currentIndex);}, 300);    
-    }
+function moveStep (obj, dir = 1) {
+  obj.currentIndex += Math.sign(dir);
+  goToSlide(obj, obj.currentIndex);
+  if (obj.currentIndex > 3) {
+    obj.currentIndex -= 3;
+    setTimeout(() => {goToSlide(obj, obj.currentIndex, true);}, 300);
+  } else if (obj.currentIndex < 1) {
+    obj.currentIndex +=3;
+    setTimeout(() => {goToSlide(obj, obj.currentIndex, true);}, 300);    
+  }
 }
 
 //Определение элемента карусели компьютером путём циклическим вращением в случайном интервале времени
 function runPcchouse () {
-  let chouseTime = Math.floor(Math.random()*1000 + 5000);
-  let timer = setInterval (() => {moveFoward(Pc);}, 335);
+  const chouseTime = Math.floor(Math.random()*1000 + 5000);
+  let timer = setInterval (() => {moveStep(Pc);}, 335);
   setTimeout(() => {clearInterval(timer);}, chouseTime);
 }
 
@@ -383,11 +369,7 @@ function runPcchouse () {
 function userMove(delta) {
   if (moveInProgress) return;
   moveInProgress = true;
-  if (delta > 0) {
-    moveFoward(User);
-  } else {
-    moveBack(User);
-  }
+  moveStep(User, delta);
   setTimeout(function() {
     moveInProgress = false;
   }, 310);
@@ -440,17 +422,17 @@ function choosingWinner () {
     case 3:
     case 0: {
       addText('stone__result', "Ничья");
-      console.log('Ничья'); break;
+      break;
     }
     case -1:
     case 2: {
       addText('stone__result', "Победа!!!");
-      console.log('Победа'); break;
+      break;
     }
     case 1:
     case -2: {
       addText('stone__result', "Проиграл...");
-      console.log('Проиграл'); break;
+      break;
     }
     default: console.log(User.currentIndex - Pc.currentIndex); break;
   }
@@ -487,4 +469,41 @@ function game5Stop() {
   hideGameWindow('pcchoose'); 
   showGameWindow('play__rules5'); 
   showGameWindow('play__start5','inline')
+}
+
+
+//Game6
+
+const changeBgColor = (num = 2105383) => {
+  if (isNaN(Number(num)) || num === "") {
+    console.log('Переданный параметр не является числом');
+    return;
+  } else if (num < 0 || num > 16777216) {
+    console.log('Заданное число вне диапазона');
+    return;
+  }
+  const body = document.querySelector('body');
+  let num16 = num.toString(16);
+  body.style.backgroundColor = '#' + num16;
+  clearText("play__textfield6");
+  addText('play__textfield6', "Текущий цвет: #" + num16);
+  document.querySelector('#play__textfield6').style.color = '#' + num16;
+}
+
+function game6() {
+  const randomColor = Math.floor(Math.random() * 16777216);
+  changeBgColor(randomColor);
+}
+
+function game6Start() {
+  hideGameWindow('play__start6'); 
+  hideGameWindow('play__rules6'); 
+  showGameWindow('play__gamearea6'); 
+}
+
+function game6Stop() {
+  hideGameWindow('play__window6'); 
+  hideGameWindow('play__gamearea6'); 
+  showGameWindow('play__rules6'); 
+  showGameWindow('play__start6','inline')
 }

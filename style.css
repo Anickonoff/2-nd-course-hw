@@ -121,7 +121,6 @@ body {
 }
 
 .about {
-    background-color: #202027;
     padding-top: 94px;
     padding-bottom: 50px;
     background-image: url('img/Star2_1.svg'), url('img/Star2_2.svg'), url('img/Star2_3.svg');
@@ -467,6 +466,7 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 26px;
+    padding: 10px;
 }
 
 .play__text {
