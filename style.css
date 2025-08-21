@@ -24,10 +24,10 @@ body {
 
 .top {
     background-color: #E1FF8F;
-    height: 800px;
+    height: 710px;
     background-image: url('img/Star1_1.svg'), url('img/Star1_2.svg'), url('img/Star1_3.svg'), url('img/Star1_4.svg'), url('img/Star1_5.svg');
     background-repeat: no-repeat;
-    background-position: right 0 top 0, left 63px top 94px, left 156px top 69px, right 334px top 568px, right 445px top 538px;
+    background-position: right 0 top 0, left 63px top 94px, left 156px top 69px, right 344px top 568px, right 455px top 538px;
 }
 
 .top__title {
@@ -125,7 +125,7 @@ body {
     padding-bottom: 50px;
     background-image: url('img/Star2_1.svg'), url('img/Star2_2.svg'), url('img/Star2_3.svg');
     background-repeat: no-repeat;
-    background-position: right 0px top 77px, left 25px top 770px, left 40px top 822px;
+    background-position: right 0px top 110px, left 25px top 770px, left 40px top 822px;
 }
 
 .about__title {
@@ -209,6 +209,8 @@ body {
     font-style: normal;
     font-weight: 500;
     line-height: 110%;
+    border-radius: 52.582px;
+    background: #F7F7F7;
     /* 17.6px */
 }
 
@@ -224,7 +226,7 @@ body {
 
 .games {
     background-image: url(img/Star3_1.svg), url(img/Star3_2.svg), url(img/Star3_3.svg), url(img/Star3_4.svg);
-    background-position: right 124px top 93px, right 45px top 126px, right 52px bottom 65px, right 150px bottom 45px;
+    background-position: right 125px top 93px, right 47px top 127px, right 52px bottom 65px, right 150px bottom 45px;
     background-repeat: no-repeat;
     padding-top: 46px;
     padding-bottom: 144px;
@@ -557,12 +559,6 @@ body {
         width: 600px;
         box-sizing: border-box;
     }
-
-    .game__box {
-        /* justify-content: center; */
-    }
-
-    
 }
 
 @media (max-width: 767px) {
@@ -576,7 +572,7 @@ body {
     }
 
     .top {
-        height: 650px;
+        height: 649px;
         background-image: url('img/Star1_1m.svg'), url('img/Star1_2m.svg'), url('img/Star1_3m.svg'), url('img/Star1_4m.svg'), url('img/Star1_5m.svg');
         background-repeat: no-repeat;
         background-position: right 0 top 0, left 37px top 97px, left 91px top 64px, right 34px top 580px, right 86px top 557px;
@@ -595,6 +591,7 @@ body {
         width: auto;
         min-width: 296px;
         margin-bottom: 36px;
+        margin-top: 25px;
     }
 
     .top__button {
@@ -655,11 +652,12 @@ body {
 
     .game__img {
         width: 100%;
+        border-radius: 30px;
     }
 
     .game__text {
         padding: 29.037px 29.037px 32.667px 29.037px;
-        width: 285px;
+        width: 343px;
     }
 
     .game__title {

@@ -12,7 +12,7 @@
 <body>
     <header class="top center">
         <h1 class="top__title">Добро пожаловать на&nbsp;мой&nbsp;сайт мини-игр</h1>
-        <p class="top__intro">Тебе предстоит пройти несколько увлекательных игр. Если готов, нажимай <span class="top__intro-bold">«Поехали!»</span> и <span class="top__intro-bold">приступай.</span></p>
+        <p class="top__intro">Тебе предстоит пройти несколько увлекательных игр. Если готов, нажимай&nbsp;<span class="top__intro-bold">«Поехали!»</span> и <span class="top__intro-bold">приступай.</span></p>
         <button class="top__button" onclick="moveToGame();">Поехали!</button>
     </header>
     <nav class="menu">
@@ -78,7 +78,7 @@
                     <article class="about__game">
                         <img src="img/number.png" alt="Угадай число" class="about__img">
                         <div class="about__descr">
-                            <p class="about__number">Игра №1</p>
+                            <p class="about__number">Игра № 1</p>
                             <h3 class="about__name">Угадай число </h3>
                         </div>
                     </article>
@@ -107,7 +107,7 @@
                     <article class="about__game">
                         <img src="img/mathematic.png" alt="Простая арифметика" class="about__img">
                         <div class="about__descr">
-                            <p class="about__number">Игра №2</p>
+                            <p class="about__number">Игра № 2</p>
                             <h3 class="about__name">Простая арифметика</h3>
                         </div>
                     </article>
@@ -127,7 +127,7 @@
                     <article class="about__game">
                         <img src="img/mathematic.png" alt="Простая арифметика" class="about__img">
                         <div class="about__descr">
-                            <p class="about__number">Игра №2</p>
+                            <p class="about__number">Игра № 2</p>
                             <h3 class="about__name">Простая арифметика</h3>
                         </div>
                     </article>
@@ -176,7 +176,7 @@
                         <div id='play__textfield1' class="play__dialog">
                             Введите число!
                         </div>
-                        <input id='play__input1' class="play__input" placeholder="Число"></input>
+                        <input id='play__input1' class="play__input" placeholder="Число">
                         <button id='play__enter1' class="play__button play__button_game" onclick="chkAnsverGame1();">Ввод</button>
                     </div>
                     <button id="play__start1" onclick="game1Start();" class="play__button">Старт</button>
@@ -203,7 +203,7 @@
                         <div id='play__textfield2' class="play__dialog">
                             
                         </div>
-                        <input id='play__input2' class="play__input" placeholder="Ответ"></input>
+                        <input id='play__input2' class="play__input" placeholder="Ответ">
                         <button id='play__enter2' class="play__button play__button_game" onclick="chkAnsverGame2();">Ввод</button>
                     </div>
                     <button id="play__start2" onclick="game2Start()" class="play__button">Старт</button>
@@ -213,7 +213,7 @@
             <article id="gameText" class="game">
                 <div class="game__text">
                     <h3 class="game__title">Переверни текст</h3>
-                    <p class="game__descr">Попробуй ввести текст, который будет перевернут.</p>
+                    <p class="game__descr">Попробуй ввести текст, который будет&nbsp;перевернут.</p>
                     <button class="game__button" onclick="showGameWindow('play__window3')">Играть!</button>
                 </div>
                 <img src="img/text.png" alt="Переверни текст" class="game__img">
@@ -229,7 +229,7 @@
                         <div id='play__textfield3' class="play__dialog">
                             Введите текст!
                         </div>
-                        <input id='play__input3' class="play__input" placeholder="Текст"></input>
+                        <input id='play__input3' class="play__input" placeholder="Текст">
                         <button id='play__enter3' class="play__button play__button_game" onclick="game3();">Ввод</button>
                     </div>
                     <button id="play__start3" onclick="game3Start();" class="play__button">Старт</button>
@@ -325,8 +325,8 @@
                     <div id="play__gamearea6" class="play__gamearea">
                         <div id='play__textfield6' class="play__dialog">                          
                         </div>
-                        <button id="play__change6" onclick="game6();" class="play__button">Перекрасить</button>
-                        <button id="play__return6" onclick="changeBgColor();" class="play__button">Вернуть</button>
+                        <button id="play__change6" onclick="game6();" class="play__button play__button_game">Перекрасить</button>
+                        <button id="play__return6" onclick="changeBgColor();" class="play__button play__button_game">Вернуть</button>
                     </div>
                     <button id="play__start6" onclick="game6Start();" class="play__button">Старт</button>
                     <button id='play__exit6' class="play__button play__button_game" onclick="game6Stop();">Выход</button>
